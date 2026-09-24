@@ -5,53 +5,277 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CandyRush</title>
+    <title>🍭CandyRush</title>
 
-    <!-- Candy-style font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- Animated Background -->
+    <div class="background-animation">
 
-    <!-- Logo -->
-    <a href="#" class="logo">
+        <span class="bubble bubble1"></span>
+        <span class="bubble bubble2"></span>
+        <span class="bubble bubble3"></span>
+        <span class="bubble bubble4"></span>
+        <span class="bubble bubble5"></span>
+        <span class="bubble bubble6"></span>
 
-        <img src="assets/stall.png"
-             alt="CandyRush Logo">
+        <span class="candy candy1">🍭</span>
+        <span class="candy candy2">🍬</span>
+        <span class="candy candy3">🍫</span>
+        <span class="candy candy4">🍭</span>
+        <span class="candy candy5">🍬</span>
 
-        <span class="candy-name">
-            <span>C</span><span>a</span><span>n</span><span>d</span><span>y</span><span>R</span><span>u</span><span>s</span><span>h</span>
-        </span>
-
-    </a>
-
-
-    <!-- Navigation -->
-    <nav>
-
-        <a href="#home">Home</a>
-
-        <a href="#candies">Candies</a>
-
-        <a href="#collections">Collections</a>
-
-        <a href="#about">About Us</a>
-
-    </nav>
+    </div>
 
 
-    <!-- Shop Button -->
-    <a href="#shop" class="shop">
-        SHOP SWEETS
-    </a>
+    <!-- HEADER -->
 
-</header>
+    <header>
+
+        <!-- Logo -->
+
+        <a href="#" class="logo">
+
+            <img src="assets/stall.png" alt="CandyRush Logo">
+
+            <span class="candy-name">
+                <span>C</span><span>a</span><span>n</span><span>d</span><span>y</span><span>R</span><span>u</span><span>s</span><span>h</span>
+            </span>
+
+        </a>
+
+
+        <!-- Navigation -->
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#candies">Candies</a>
+
+            <a href="#collections">Collections</a>
+
+            <a href="#about">About Us</a>
+
+        </nav>
+
+
+        <!-- Header Actions -->
+
+        <div class="header-actions">
+
+            <a href="#" class="icon user-icon" title="Account">
+                👤
+            </a>
+
+            <a href="#" class="icon wishlist-icon" title="Wishlist">
+                ♡
+            </a>
+
+            <a href="#" class="cart" title="Shopping Cart">
+
+                🛒
+
+                <span class="cart-count">
+                    11
+                </span>
+
+            </a>
+
+            <a href="#" class="shop">
+                SHOP SWEETS
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- Hidden Radio Controls for Pure CSS Banner Slider (NO JS) -->
+    <input type="radio" name="banner-slide" id="slide-1" class="slide-radio" hidden>
+    <input type="radio" name="banner-slide" id="slide-2" class="slide-radio" hidden>
+    <input type="radio" name="banner-slide" id="slide-3" class="slide-radio" hidden>
+
+    <!-- BANNER SLIDER -->
+
+    <main>
+
+        <section class="slider">
+
+            <div class="slides">
+
+
+                <!-- BANNER 1 -->
+
+                <div class="banner vintage">
+
+                    <div class="banner-content">
+
+                        <span class="small-title">
+                            VINTAGE CANDY COLLECTION
+                        </span>
+
+                        <h1>
+                            A Taste of the
+                            <span>Good Old Days</span>
+                        </h1>
+
+                        <p>
+                            Rediscover the classic sweets and nostalgic
+                            flavors that bring childhood memories back.
+                        </p>
+
+                        <a href="#" class="banner-button vintage-button">
+                            EXPLORE VINTAGE
+                        </a>
+
+                    </div>
+
+
+                    <div class="banner-decoration">
+
+                        <div class="candy-jar">
+                            🍬
+                        </div>
+
+                        <div class="large-candy">
+                            🍭
+                        </div>
+
+                        <div class="small-candy">
+                            🍬
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BANNER 2 -->
+
+                <div class="banner wonderland">
+
+                    <div class="banner-content">
+
+                        <span class="small-title">
+                            CANDY WONDERLAND
+                        </span>
+
+                        <h1>
+                            Enter a
+                            <span>World of Sweetness</span>
+                        </h1>
+
+                        <p>
+                            Explore colorful candies, magical flavors
+                            and a world created for every sweet lover.
+                        </p>
+
+                        <a href="#" class="banner-button wonderland-button">
+                            DISCOVER CANDIES
+                        </a>
+
+                    </div>
+
+
+                    <div class="banner-decoration">
+
+                        <div class="wonder-candy candy-big">
+                            🍭
+                        </div>
+
+                        <div class="wonder-candy candy-small">
+                            🍬
+                        </div>
+
+                        <div class="wonder-candy candy-choco">
+                            🍫
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BANNER 3 -->
+
+                <div class="banner festival">
+
+                    <div class="banner-content">
+
+                        <span class="small-title">
+                            CANDY FESTIVAL
+                        </span>
+
+                        <h1>
+                            Mix. Match.
+                            <span>Make It Sweet.</span>
+                        </h1>
+
+                        <p>
+                            Create your own colorful candy collection
+                            and make every moment a little sweeter.
+                        </p>
+
+                        <a href="#" class="banner-button festival-button">
+                            BUILD YOUR BOX
+                        </a>
+
+                    </div>
+
+
+                    <div class="banner-decoration">
+
+                        <div class="festival-candy candy-one">
+                            🍭
+                        </div>
+
+                        <div class="festival-candy candy-two">
+                            🍬
+                        </div>
+
+                        <div class="festival-candy candy-three">
+                            🍫
+                        </div>
+
+                        <div class="festival-candy candy-four">
+                            🍭
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Slider Dots -->
+
+            <div class="slider-dots">
+
+                <label for="slide-1" class="dot dot1" title="Slide 1"></label>
+                <label for="slide-2" class="dot dot2" title="Slide 2"></label>
+                <label for="slide-3" class="dot dot3" title="Slide 3"></label>
+
+            </div>
+
+        </section>
+
+    </main>
+
 
 </body>
+
 </html>
