@@ -5,93 +5,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>🍭CandyRush</title>
+    <title>🍭 CandyRush - The Candy Universe</title>
 
+    <!-- Google Fonts for Distinct Banner & Section Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Bungee&family=Fredoka:wght@600;700;800&family=Pacifico&family=Playfair+Display:ital,wght@0,700;1,600&family=Quicksand:wght@600;700&family=Titan+One&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Animated Background -->
-    <div class="background-animation">
+    <!-- ==================== CANDY UNIVERSE MAIN BACKGROUND ==================== -->
+    <div class="background-animation candy-universe-bg">
 
-        <span class="bubble bubble1"></span>
-        <span class="bubble bubble2"></span>
-        <span class="bubble bubble3"></span>
-        <span class="bubble bubble4"></span>
-        <span class="bubble bubble5"></span>
-        <span class="bubble bubble6"></span>
+        <!-- Cosmic Candy Planets -->
+        <div class="space-planet planet-lollipop" title="Lollipop Planet">
+            <span class="planet-body">🪐</span>
+            <span class="planet-ring">🍭</span>
+        </div>
+        
+        <div class="space-planet planet-donut" title="Donut Galaxy">
+            <span class="planet-body">🍩</span>
+            <span class="planet-sparkle">✨</span>
+        </div>
 
-        <span class="candy candy1">🍭</span>
-        <span class="candy candy2">🍬</span>
-        <span class="candy candy3">🍫</span>
-        <span class="candy candy4">🍭</span>
-        <span class="candy candy5">🍬</span>
+        <div class="space-planet planet-gummy" title="Gummy Bear Nebula">
+            <span class="planet-body">🍬</span>
+        </div>
+
+        <!-- Candy Space Rocket Flying Infinitely -->
+        <div class="candy-rocket-wrap">
+            <span class="candy-rocket" title="Candy Explorer Rocket">🚀</span>
+            <span class="rocket-flame">🔥🍬</span>
+        </div>
+
+        <!-- Candy Meteors / Shooting Stars -->
+        <span class="candy-meteor meteor-1">☄️🍭</span>
+        <span class="candy-meteor meteor-2">☄️🍬</span>
+        <span class="candy-meteor meteor-3">☄️🍫</span>
+
+        <!-- Sparkling Candy Stars -->
+        <span class="space-star star1">✨</span>
+        <span class="space-star star2">⭐</span>
+        <span class="space-star star3">🌟</span>
+        <span class="space-star star4">✨</span>
+        <span class="space-star star5">⭐</span>
+        <span class="space-star star6">💫</span>
+        <span class="space-star star7">✨</span>
+        <span class="space-star star8">⭐</span>
 
     </div>
 
 
-    <!-- HEADER -->
-
+    <!-- ==================== HEADER ==================== -->
     <header>
 
-        <!-- Logo -->
-
+        <!-- Logo with C, Y, R, H Highlighted -->
         <a href="#" class="logo">
-
-            <img src="assets/stall.png" alt="CandyRush Logo">
-
+            <div class="logo-badge">
+                <span class="badge-icon">🏪🍭</span>
+            </div>
             <span class="candy-name">
-                <span>C</span><span>a</span><span>n</span><span>d</span><span>y</span><span>R</span><span>u</span><span>s</span><span>h</span>
+                <span class="big-letter">C</span><span>a</span><span>n</span><span>d</span><span class="big-letter">y</span><span class="big-letter">R</span><span>u</span><span>s</span><span class="big-letter">h</span>
             </span>
-
         </a>
 
 
-        <!-- Navigation -->
+        <!-- Navigation with Tiny Boy Pulling Candy Cart -->
+        <nav class="nav-container">
 
-        <nav>
+            <!-- Tiny Boy Pulling Candy Cart Track Above Nav -->
+            <div class="nav-cart-track">
+                <div class="boy-cart-runner">
+                    <span class="boy-char">🏃‍♂️</span>
+                    <span class="cart-rope">⁓⁓</span>
+                    <span class="candy-cart">🛒🍬🍭🍫</span>
+                </div>
+            </div>
 
             <a href="#home">Home</a>
-
             <a href="#candies">Candies</a>
-
             <a href="#collections">Collections</a>
-
             <a href="#about">About Us</a>
 
         </nav>
 
 
-        <!-- Header Actions -->
-
+        <!-- Header Actions with Melted Chocolate Theme -->
         <div class="header-actions">
 
-            <a href="#" class="icon user-icon" title="Account">
+            <a href="#" class="icon user-icon melted-choco" title="Account">
                 👤
+                <span class="choco-drip"></span>
             </a>
 
-            <a href="#" class="icon wishlist-icon" title="Wishlist">
+            <a href="#" class="icon wishlist-icon melted-choco" title="Wishlist">
                 ♡
+                <span class="choco-drip"></span>
             </a>
 
-            <a href="#" class="cart" title="Shopping Cart">
-
+            <a href="#" class="cart melted-choco" title="Shopping Cart">
                 🛒
-
-                <span class="cart-count">
-                    11
-                </span>
-
+                <span class="cart-count">11</span>
+                <span class="choco-drip"></span>
             </a>
 
-            <a href="#" class="shop">
-                SHOP SWEETS
+            <a href="#" class="shop melted-choco-btn">
+                <span class="btn-text">SHOP SWEETS</span>
+                <span class="choco-btn-drip"></span>
             </a>
 
         </div>
@@ -99,175 +122,216 @@
     </header>
 
 
-
-    <!-- Hidden Radio Controls for Pure CSS Banner Slider (NO JS) -->
-    <input type="radio" name="banner-slide" id="slide-1" class="slide-radio" hidden>
-    <input type="radio" name="banner-slide" id="slide-2" class="slide-radio" hidden>
-    <input type="radio" name="banner-slide" id="slide-3" class="slide-radio" hidden>
-
-    <!-- BANNER SLIDER -->
-
+    <!-- ==================== BANNER SLIDER ==================== -->
     <main>
 
         <section class="slider">
 
+            <!-- Banner Arrow Buttons (< > Keys) -->
+            <button class="banner-nav nav-prev" id="prevSlideBtn" title="Previous Banner">&lt;</button>
+            <button class="banner-nav nav-next" id="nextSlideBtn" title="Next Banner">&gt;</button>
+
             <div class="slides">
 
-
-                <!-- BANNER 1 -->
-
+                <!-- BANNER 1: VINTAGE CANDY COLLECTION -->
                 <div class="banner vintage">
 
+                    <!-- Interactive Hanging Candies in Top Left Corner -->
+                    <div class="hanging-candies-corner">
+                        <div class="hanging-candy thread-1" title="Click or hover to sway!">
+                            <span class="thread"></span>
+                            <span class="candy-item">🍭</span>
+                        </div>
+                        <div class="hanging-candy thread-2" title="Click or hover to sway!">
+                            <span class="thread"></span>
+                            <span class="candy-item">🍬</span>
+                        </div>
+                        <div class="hanging-candy thread-3" title="Click or hover to sway!">
+                            <span class="thread"></span>
+                            <span class="candy-item">🍫</span>
+                        </div>
+                        <div class="hanging-candy thread-4" title="Click or hover to sway!">
+                            <span class="thread"></span>
+                            <span class="candy-item">🍊</span>
+                        </div>
+                    </div>
+
                     <div class="banner-content">
-
                         <span class="small-title">
-                            VINTAGE CANDY COLLECTION
+                            📜 EST. 1920 • VINTAGE COLLECTION
                         </span>
-
                         <h1>
                             A Taste of the
                             <span>Good Old Days</span>
                         </h1>
-
                         <p>
-                            Rediscover the classic sweets and nostalgic
-                            flavors that bring childhood memories back.
+                            Rediscover handcrafted classic sweets, antique caramel drops, 
+                            and nostalgic recipes handed down through generations.
                         </p>
-
                         <a href="#" class="banner-button vintage-button">
-                            EXPLORE VINTAGE
+                            EXPLORE VINTAGE ➔
                         </a>
-
                     </div>
 
-
-                    <div class="banner-decoration">
-
-                        <div class="candy-jar">
-                            🍬
-                        </div>
-
-                        <div class="large-candy">
-                            🍭
-                        </div>
-
-                        <div class="small-candy">
-                            🍬
-                        </div>
-
+                    <div class="banner-decoration vintage-decor">
+                        <div class="candy-jar">🏺🍬</div>
+                        <div class="large-candy">🍭</div>
+                        <div class="small-candy">🍬</div>
                     </div>
 
                 </div>
 
 
-
-                <!-- BANNER 2 -->
-
+                <!-- BANNER 2: CANDY WONDERLAND -->
                 <div class="banner wonderland">
 
                     <div class="banner-content">
-
                         <span class="small-title">
-                            CANDY WONDERLAND
+                            ✨ MAGICAL SWEET REALM
                         </span>
-
                         <h1>
                             Enter a
                             <span>World of Sweetness</span>
                         </h1>
-
                         <p>
-                            Explore colorful candies, magical flavors
-                            and a world created for every sweet lover.
+                            Explore cotton candy clouds, sugar crystal streams, and magical
+                            candies created to delight every sweet lover's dream.
                         </p>
-
                         <a href="#" class="banner-button wonderland-button">
-                            DISCOVER CANDIES
+                            DISCOVER CANDIES ➔
                         </a>
-
                     </div>
 
-
-                    <div class="banner-decoration">
-
-                        <div class="wonder-candy candy-big">
-                            🍭
+                    <!-- Tiny Girl Reaching to Catch Floating Candy -->
+                    <div class="wonderland-scene">
+                        <div class="girl-catcher-wrap">
+                            <span class="floating-target-candy">🍭✨</span>
+                            <span class="tiny-girl" title="Catching the magic candy!">👧</span>
+                            <span class="magic-sparkles">🌟✨</span>
                         </div>
-
-                        <div class="wonder-candy candy-small">
-                            🍬
-                        </div>
-
-                        <div class="wonder-candy candy-choco">
-                            🍫
-                        </div>
-
+                        <div class="wonder-candy candy-big">🍭</div>
+                        <div class="wonder-candy candy-small">🍬</div>
+                        <div class="wonder-candy candy-choco">🍫</div>
                     </div>
 
                 </div>
 
 
-
-                <!-- BANNER 3 -->
-
+                <!-- BANNER 3: CANDY FESTIVAL -->
                 <div class="banner festival">
 
                     <div class="banner-content">
-
                         <span class="small-title">
-                            CANDY FESTIVAL
+                            🎉 CARNIVAL OF FLAVORS
                         </span>
-
                         <h1>
                             Mix. Match.
                             <span>Make It Sweet.</span>
                         </h1>
-
                         <p>
-                            Create your own colorful candy collection
-                            and make every moment a little sweeter.
+                            Celebrate with candy crackers, explosive flavor popping boxes,
+                            and customizable sweet hampers for every party!
                         </p>
-
                         <a href="#" class="banner-button festival-button">
-                            BUILD YOUR BOX
+                            BUILD YOUR BOX ➔
                         </a>
-
                     </div>
 
-
-                    <div class="banner-decoration">
-
-                        <div class="festival-candy candy-one">
-                            🍭
-                        </div>
-
-                        <div class="festival-candy candy-two">
-                            🍬
-                        </div>
-
-                        <div class="festival-candy candy-three">
-                            🍫
-                        </div>
-
-                        <div class="festival-candy candy-four">
-                            🍭
-                        </div>
-
+                    <!-- Festival Candy Crackers & Boxes -->
+                    <div class="festival-scene">
+                        <div class="festival-element cracker-1" title="Candy Cracker!">🎆🍬</div>
+                        <div class="festival-element box-1" title="Sweet Gift Box!">🎁🍫</div>
+                        <div class="festival-element cracker-2" title="Popping Cracker!">💥🍭</div>
+                        <div class="festival-element box-2" title="Party Box!">📦🍬</div>
+                        <div class="festival-candy candy-one">🍭</div>
+                        <div class="festival-candy candy-two">🍬</div>
                     </div>
 
                 </div>
-
 
             </div>
 
 
             <!-- Slider Dots -->
-
             <div class="slider-dots">
+                <span class="dot active" data-slide="0" title="Slide 1"></span>
+                <span class="dot" data-slide="1" title="Slide 2"></span>
+                <span class="dot" data-slide="2" title="Slide 3"></span>
+            </div>
 
-                <label for="slide-1" class="dot dot1" title="Slide 1"></label>
-                <label for="slide-2" class="dot dot2" title="Slide 2"></label>
-                <label for="slide-3" class="dot dot3" title="Slide 3"></label>
+        </section>
+
+
+        <!-- ==================== FULL SCREEN CANDY WRAPPER CARDS SECTION ==================== -->
+        <section class="candy-cards-section" id="candies">
+
+            <div class="candy-section-heading">
+                <span class="heading-badge">🍬 WRAPPED IN DELIGHT 🍬</span>
+                <h2>Pick Your Sweet</h2>
+                <p>Unwrap happiness with our extraordinary metallic candy wrappers!</p>
+            </div>
+
+            <div class="candy-cards-container">
+
+                <!-- Wrapper Card 1: Classic Chocolate -->
+                <div class="candy-wrapper-card wrapper-choco">
+                    <div class="wrapper-twist twist-left"></div>
+                    <div class="wrapper-body">
+                        <div class="card-foil-shine"></div>
+                        <div class="wrapper-stamp">ROYAL COCOA</div>
+                        <div class="wrapper-icon-box">🍫</div>
+                        <h3>Classic Chocolate</h3>
+                        <span class="candy-flavor-tag">Rich & Creamy 85% Cocoa</span>
+                        <p>Melt-in-your-mouth velvety chocolate made with roasted Ghanaian cocoa beans.</p>
+                        <a href="#" class="wrapper-btn">UNWRAP NOW →</a>
+                    </div>
+                    <div class="wrapper-twist twist-right"></div>
+                </div>
+
+                <!-- Wrapper Card 2: Strawberry Bliss -->
+                <div class="candy-wrapper-card wrapper-strawberry">
+                    <div class="wrapper-twist twist-left"></div>
+                    <div class="wrapper-body">
+                        <div class="card-foil-shine"></div>
+                        <div class="wrapper-stamp">BERRY MAGIC</div>
+                        <div class="wrapper-icon-box">🍓</div>
+                        <h3>Strawberry Bliss</h3>
+                        <span class="candy-flavor-tag">Sweet & Tangy Crunch</span>
+                        <p>Infused with real wild strawberries and sparkling sugar crystals.</p>
+                        <a href="#" class="wrapper-btn">UNWRAP NOW →</a>
+                    </div>
+                    <div class="wrapper-twist twist-right"></div>
+                </div>
+
+                <!-- Wrapper Card 3: Caramel Crunch -->
+                <div class="candy-wrapper-card wrapper-caramel">
+                    <div class="wrapper-twist twist-left"></div>
+                    <div class="wrapper-body">
+                        <div class="card-foil-shine"></div>
+                        <div class="wrapper-stamp">GOLDEN AMBER</div>
+                        <div class="wrapper-icon-box">🍯</div>
+                        <h3>Caramel Crunch</h3>
+                        <span class="candy-flavor-tag">Golden Butter Toffee</span>
+                        <p>Slow-cooked butter caramel layered with roasted hazelnut crunch.</p>
+                        <a href="#" class="wrapper-btn">UNWRAP NOW →</a>
+                    </div>
+                    <div class="wrapper-twist twist-right"></div>
+                </div>
+
+                <!-- Wrapper Card 4: Rainbow Candy -->
+                <div class="candy-wrapper-card wrapper-rainbow">
+                    <div class="wrapper-twist twist-left"></div>
+                    <div class="wrapper-body">
+                        <div class="card-foil-shine"></div>
+                        <div class="wrapper-stamp">SPECTRUM BURST</div>
+                        <div class="wrapper-icon-box">🌈</div>
+                        <h3>Rainbow Candy</h3>
+                        <span class="candy-flavor-tag">7 Fruit Flavor Explosion</span>
+                        <p>Fruity, tangy, and bursting with vibrant rainbow sour sugar burst.</p>
+                        <a href="#" class="wrapper-btn">UNWRAP NOW →</a>
+                    </div>
+                    <div class="wrapper-twist twist-right"></div>
+                </div>
 
             </div>
 
@@ -275,6 +339,8 @@
 
     </main>
 
+    <!-- Interactive JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 
