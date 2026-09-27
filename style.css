@@ -1,371 +1,532 @@
-/* =========================================
-   BASIC RESET & FONTS
-========================================= */
+/* ==========================================================================
+   CANDYRUSH - PURE PNG CANDY UNIVERSE STYLE SHEET
+   ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
-    font-family: 'Fredoka', 'Baloo 2', sans-serif;
-    background: #09020e;
-    color: white;
+    font-family: 'Baloo 2', cursive, sans-serif;
+    background:
+        radial-gradient(circle at 20% 20%, #080808 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, #080808 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, #000000 0%, #000000 100%);
+    color: #ffffff;
     overflow-x: hidden;
     position: relative;
 }
 
-
-/* =========================================
-   1. MAIN BACKGROUND: CANDY SPACE UNIVERSE
-========================================= */
-
-.candy-universe-bg {
+/* --------------------------------------------------------------------------
+   2. MAIN BACKGROUND (CANDY UNIVERSE - EXACT DIAGRAM ANNOTATIONS)
+   -------------------------------------------------------------------------- */
+.background-animation {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
-    background:
-        radial-gradient(circle at 30% 20%, rgba(138, 43, 226, 0.25), transparent 45%),
-        radial-gradient(circle at 70% 80%, rgba(255, 20, 147, 0.2), transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(0, 206, 209, 0.15), transparent 50%),
-        linear-gradient(135deg, #09020e 0%, #150524 40%, #1d0933 70%, #0c0214 100%);
 }
 
-/* Cosmic Candy Planets */
-.space-planet {
+/* Base style for all background PNG space assets */
+.space-asset {
     position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    pointer-events: none;
     user-select: none;
-    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
-.planet-lollipop {
-    left: 4%;
-    top: 18%;
-    font-size: 80px;
-    animation: planetRotate 22s infinite linear;
+/* Universe Cloud (Middle BG) */
+.universe-bg {
+    width: 780px;
+    top: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.38;
+    filter: drop-shadow(0 0 60px rgba(69, 12, 138, 0.45));
+    animation: universePulse 20s infinite ease-in-out;
 }
 
-.planet-donut {
-    right: 6%;
-    top: 60%;
-    font-size: 95px;
-    animation: floatPlanet 14s infinite ease-in-out;
+@keyframes universePulse {
+    0%, 100% { transform: translateX(-50%) scale(1) rotate(0deg); opacity: 0.35; }
+    50% { transform: translateX(-50%) scale(1.06) rotate(3deg); opacity: 0.45; }
 }
 
-.planet-gummy {
-    left: 45%;
-    bottom: 5%;
-    font-size: 60px;
-    animation: floatPlanet 18s infinite ease-in-out reverse;
+/* Kepler (Big Size, Top Middle, Half Hidden Above Screen) */
+.kepler-top {
+    width: 450px;
+    top: -160px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.78;
+    filter: drop-shadow(0 0 30px rgba(99, 230, 190, 0.35));
+    animation: keplerFloat 16s infinite ease-in-out;
 }
 
-@keyframes planetRotate {
+@keyframes keplerFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    50% { transform: translateX(-50%) translateY(-15px) rotate(4deg); }
+}
+
+/* Saturn (Big Size, Right Upper/Middle, Half Out of Screen) */
+.saturn-right {
+    width: 440px;
+    top: 8%;
+    right: -170px;
+    opacity: 0.82;
+    filter: drop-shadow(0 0 40px rgba(255, 212, 59, 0.45));
+    animation: saturnFloat 14s infinite ease-in-out;
+}
+
+@keyframes saturnFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(-6deg); }
+}
+
+/* CandySaturn (Medium Size, Left Side) */
+.candysaturn-left {
+    width: 230px;
+    top: 30%;
+    left: 3%;
+    opacity: 0.88;
+    filter: drop-shadow(0 0 35px rgba(255, 183, 3, 0.6));
+    animation: candySaturnFloat 12s infinite ease-in-out;
+}
+
+@keyframes candySaturnFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(10deg); }
+}
+
+/* Mars Planet (Green Round Area in Lower Center) */
+.mars-lower-center {
+    width: 280px;
+    bottom: 6%;
+    left: 26%;
+    opacity: 0.88;
+    filter: drop-shadow(0 0 40px rgba(99, 230, 190, 0.45));
+    animation: marsFloat 14s infinite ease-in-out;
+}
+
+@keyframes marsFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+}
+
+/* Galaxy (Bottom Right, Spinning) */
+.galaxy-bottom-right {
+    width: 260px;
+    bottom: 4%;
+    right: 4%;
+    opacity: 0.4;
+    filter: drop-shadow(0 0 45px #9b5de5);
+    animation: galaxySpin 75s infinite linear;
+}
+
+@keyframes galaxySpin {
     0% { transform: rotate(0deg) scale(1); }
     50% { transform: rotate(180deg) scale(1.08); }
     100% { transform: rotate(360deg) scale(1); }
 }
 
-@keyframes floatPlanet {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-30px) rotate(12deg); }
+/* Solar (Target Spot for Comet & Asteroid) */
+.solar-target-spot {
+    width: 175px;
+    bottom: 6%;
+    right: 32%;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 35px rgba(255, 92, 138, 0.65));
+    animation: solarPulse 10s infinite ease-in-out;
 }
 
-/* Candy Rocket Moving Infinitely across Space */
-.candy-rocket-wrap {
+@keyframes solarPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.08) rotate(15deg); }
+}
+
+/* Spaceship (Positioned Above Solar/Galaxy - NO TINY STAR NEAR IT) */
+.spaceship-spot {
+    width: 105px;
+    bottom: 42%;
+    right: 18%;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 25px rgba(99, 230, 190, 0.7));
+    animation: spaceshipHover 11s infinite ease-in-out;
+}
+
+@keyframes spaceshipHover {
+    0%, 100% { transform: translateY(0) rotate(-8deg); }
+    50% { transform: translateY(-25px) rotate(12deg); }
+}
+
+/* Straight Rocket from Solar to Spaceship (No Fire) */
+.rocket-glitter-straight {
     position: absolute;
-    top: -80px;
-    left: -100px;
-    display: flex;
-    align-items: center;
-    animation: rocketFlight 18s infinite linear;
-    z-index: 1;
-}
-
-.candy-rocket {
-    font-size: 55px;
-    transform: rotate(45deg);
-    filter: drop-shadow(0 0 15px #ff5c8a);
-}
-
-.rocket-flame {
-    font-size: 24px;
-    margin-left: -15px;
-    animation: flameFlicker 0.3s infinite alternate;
-}
-
-@keyframes rocketFlight {
-    0% {
-        transform: translate(-100px, 110vh) rotate(-15deg);
-    }
-    100% {
-        transform: translate(110vw, -150px) rotate(-15deg);
-    }
-}
-
-@keyframes flameFlicker {
-    0% { opacity: 0.7; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1.2); }
-}
-
-/* Rocket Trail Sparkles */
-.rocket-trail-star {
-    position: fixed;
-    font-size: 16px;
+    bottom: 8%;
+    right: 32%;
     pointer-events: none;
-    z-index: 0;
-    animation: trailFade 1.2s forwards ease-out;
+    user-select: none;
+    animation: rocketStraightGlitter 6s infinite ease-in-out;
+    z-index: 3;
 }
 
-@keyframes trailFade {
-    0% { opacity: 1; transform: scale(1.2) translateY(0); }
-    100% { opacity: 0; transform: scale(0.2) translateY(30px); }
+.tiny-rocket-body {
+    display: inline-block;
+    font-size: 15px;
+    filter: drop-shadow(0 0 10px #ffd43b);
 }
 
-/* Candy Meteors (Shooting Stars) */
-.candy-meteor {
-    position: absolute;
-    font-size: 28px;
-    opacity: 0;
-    filter: drop-shadow(0 0 12px #ffd43b);
+@keyframes rocketStraightGlitter {
+    0% { opacity: 0; transform: translate(0, 0) rotate(-45deg) scale(0.65); }
+    15% { opacity: 1; }
+    80% { opacity: 1; transform: translate(135px, -240px) rotate(-45deg) scale(1.05); }
+    90%, 100% { opacity: 0; transform: translate(150px, -265px) rotate(-45deg) scale(0.3); }
 }
 
-.meteor-1 {
+/* Stone (Top Right Corner) */
+.stone-top-right {
+    width: 105px;
     top: 10%;
     right: 20%;
-    animation: meteorShoot 7s infinite ease-in;
+    opacity: 0.78;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3));
+    animation: stoneFloat 8s infinite ease-in-out;
+}
+
+@keyframes stoneFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-18px) rotate(-12deg); }
+}
+
+/* Donut 🍩 in Bottom Left Corner */
+.bg-donut-bottom-left {
+    position: absolute;
+    bottom: 5%;
+    left: 4%;
+    font-size: 70px;
+    user-select: none;
+    pointer-events: none;
+    filter: drop-shadow(0 0 30px #ff5c8a) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+    animation: donutFloat 7s infinite ease-in-out;
+    z-index: 2;
+}
+
+@keyframes donutFloat {
+    0%, 100% { transform: translateY(0) rotate(-10deg) scale(1); }
+    50% { transform: translateY(-22px) rotate(15deg) scale(1.1); }
+}
+
+/* Tiny Astronaut (White Line: Flying Down-Left Towards Donut) */
+.astronaut-white-line {
+    width: 30px;
+    position: absolute;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
+    animation: astronautWhiteLineToDonut 14s infinite ease-in-out;
+}
+
+@keyframes astronautWhiteLineToDonut {
+    0% { opacity: 0; transform: translate(22vw, 72vh) rotate(-15deg); }
+    15% { opacity: 1; }
+    80% { opacity: 1; transform: translate(5vw, 88vh) rotate(15deg); }
+    100% { opacity: 0; transform: translate(2vw, 92vh) rotate(20deg); }
+}
+
+/* Tiny Superman (Red Line: Flying STRAIGHT Upward, Fixed Upright Position) */
+.superman-straight-redline {
+    width: 30px;
+    bottom: 20%;
+    left: 60vw;
+    filter: drop-shadow(0 0 20px rgba(255, 92, 138, 0.85));
+    animation: supermanStraightUpward 14s infinite linear;
+    z-index: 2;
+}
+
+@keyframes supermanStraightUpward {
+    0% { opacity: 0; transform: translate(0, 0) rotate(-5deg) scale(0.85); }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { opacity: 0; transform: translate(8vw, -82vh) rotate(-5deg) scale(1.1); }
+}
+
+/* Tiny UFO (Roaming around Planets) */
+.ufo-roam-planets {
+    width: 35px;
+    top: 35%;
+    left: 34%;
+    filter: drop-shadow(0 0 20px #63e6be);
+    animation: ufoRoamPlanets 18s infinite ease-in-out;
+    z-index: 2;
+}
+
+@keyframes ufoRoamPlanets {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(38vw, -4vh) rotate(15deg); }
+    66% { transform: translate(-28vw, 14vh) rotate(-15deg); }
+}
+
+/* Tiny Comet (Directly to Solar) */
+.comet-tiny-hit-solar {
+    width: 55px;
+    top: 50px;
+    left: 20vw;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 22px #ffd43b);
+    animation: cometTinyHitSolar 10s infinite ease-in;
     animation-delay: 1s;
 }
 
-.meteor-2 {
-    top: 40%;
-    right: 40%;
-    animation: meteorShoot 9s infinite ease-in;
-    animation-delay: 4s;
+@keyframes cometTinyHitSolar {
+    0% { opacity: 0; transform: translate(-80px, -80px) scale(0.5); }
+    15% { opacity: 1; }
+    70% { opacity: 1; transform: translate(40vw, 72vh) scale(1.15); filter: drop-shadow(0 0 30px #ff5c8a); }
+    78%, 100% { opacity: 0; transform: translate(48vw, 82vh) scale(0.1); }
 }
 
-.meteor-3 {
-    top: 25%;
-    left: 15%;
-    animation: meteorShoot 8s infinite ease-in;
-    animation-delay: 2.5s;
+/* Spinning Asteroid (Yellow Line: Top-Right Saturn to Mars) */
+.asteroid-yellow-line {
+    width: 75px;
+    top: 80px;
+    right: 60px;
+    opacity: 0.88;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    animation: asteroidYellowLineToMars 16s infinite linear;
 }
 
-@keyframes meteorShoot {
-    0% {
-        opacity: 0;
-        transform: translate(0, 0) scale(0.5);
-    }
-    15% {
-        opacity: 1;
-    }
-    40% {
-        opacity: 1;
-        transform: translate(-300px, 250px) scale(1.2);
-    }
-    50%, 100% {
-        opacity: 0;
-        transform: translate(-450px, 380px) scale(0.2);
-    }
+@keyframes asteroidYellowLineToMars {
+    0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+    15% { opacity: 1; }
+    75% { opacity: 1; transform: translate(-48vw, 50vh) rotate(1080deg); filter: drop-shadow(0 0 25px #ffb703); }
+    82%, 100% { opacity: 0; transform: translate(-55vw, 58vh) rotate(1200deg); scale: 0.1; }
 }
 
-/* Sparkling Stars */
-.space-star {
+/* Falling Star (Blue Line: Spanning from Blue Circle near CandySaturn Leftward) */
+.falling-star-blue-arc {
+    width: 45px;
+    top: 42%;
+    left: 28%;
+    opacity: 0.9;
+    animation: fallingStarBlueArc 11s infinite ease-in;
+    animation-delay: 2s;
+}
+
+@keyframes fallingStarBlueArc {
+    0% { opacity: 0; transform: translate(0, 0) scale(0.4) ; }
+    15% { opacity: 1; }
+    70% { opacity: 1; transform: translate(-28vw, 14vh) scale(1.2) rotate(20deg) ; }
+    80%, 100% { opacity: 0; transform: translate(-35vw, 18vh) scale(0.2) rotate(20deg) ; }
+}
+
+/* Green 'S' Locations: Glowing Stars (✨, ⭐) in Exact Mentioned Spots */
+.tiny-glow-star {
     position: absolute;
-    font-size: 18px;
-    opacity: 0.6;
-    animation: starTwinkle 3s infinite ease-in-out alternate;
+    pointer-events: none;
+    user-select: none;
+    font-size: 22px;
+    filter: drop-shadow(0 0 14px #ffd43b);
+    animation: starTwinklePulse 3s infinite ease-in-out alternate;
 }
 
-.star1 { top: 12%; left: 22%; animation-delay: 0.2s; }
-.star2 { top: 25%; right: 18%; animation-delay: 0.7s; }
-.star3 { top: 65%; left: 12%; animation-delay: 1.4s; }
-.star4 { top: 78%; right: 35%; animation-delay: 0.5s; }
-.star5 { top: 35%; left: 48%; animation-delay: 1.9s; }
-.star6 { top: 85%; left: 60%; animation-delay: 1.1s; }
-.star7 { top: 15%; right: 42%; animation-delay: 2.2s; }
-.star8 { top: 50%; right: 12%; animation-delay: 0.9s; }
+@keyframes starTwinklePulse {
+    0% { opacity: 0.35; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.35); filter: drop-shadow(0 0 20px #ffffff); }
+}
 
-@keyframes starTwinkle {
-    0% { opacity: 0.3; transform: scale(0.8); }
-    100% { opacity: 1; transform: scale(1.3); filter: drop-shadow(0 0 10px #ffffff); }
+.star-spot-s1 { top: 28%; left: 17%; animation-delay: 0.1s; }
+.star-spot-s2 { top: 58%; left: 25%; animation-delay: 0.5s; }
+.star-spot-s3 { top: 28%; right: 32%; animation-delay: 0.9s; }
+.star-spot-s4 { top: 80%; right: 26%; animation-delay: 1.3s; }
+
+/* Pink 'C' Locations: Floating Candies in Exact Mentioned Spots */
+.candy-spot-c1 { width: 55px; top: 18%; left: 10%; opacity: 0.85; animation: cFloat 8s infinite ease-in-out; }
+.candy-spot-c2 { width: 20px; top: 72%; left: 17%; opacity: 0.85; animation: cFloat 10s infinite ease-in-out reverse; }
+.candy-spot-c3 { width: 55px; top: 92%; left: 20%; opacity: 0.85; animation: cFloat 9s infinite ease-in-out; }
+.candy-spot-c4 { width: 55px; top: 54%; right: 9%; opacity: 0.85; animation: cFloat 11s infinite ease-in-out reverse; }
+.candy-spot-c5 { width: 55px; top: 94%; right: 24%; opacity: 0.85; animation: cFloat 12s infinite ease-in-out; }
+
+@keyframes cFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-22px) rotate(15deg); }
+}
+
+/* Falling Star */
+.falling-star-fly {
+    width: 80px;
+    top: 35%;
+    left: 12%;
+    opacity: 0.85;
+    animation: fallingStarShoot 11s infinite ease-in;
+    animation-delay: 5s;
+}
+
+@keyframes fallingStarShoot {
+    0% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+    20% { opacity: 1; }
+    50% { opacity: 1; transform: translate(-500px, 400px) scale(1.2); }
+    70%, 100% { opacity: 0; transform: translate(-750px, 600px) scale(0.2); }
+}
+
+/* Clean Glowing Tiny Stars (✨, ⭐) in Empty Places */
+.tiny-glow-star {
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+    font-size: 22px;
+    filter: drop-shadow(0 0 14px #ffd43b);
+    animation: starTwinklePulse 3s infinite ease-in-out alternate;
+}
+
+@keyframes starTwinklePulse {
+    0% { opacity: 0.3; transform: scale(0.75); }
+    100% { opacity: 1; transform: scale(1.35); filter: drop-shadow(0 0 20px #ffffff); }
+}
+
+.star-pos-1 { top: 10%; left: 18%; animation-delay: 0.1s; }
+.star-pos-2 { top: 16%; left: 70%; animation-delay: 0.6s; }
+.star-pos-3 { top: 40%; left: 15%; animation-delay: 1.2s; }
+.star-pos-4 { top: 50%; left: 75%; animation-delay: 0.9s; }
+.star-pos-5 { top: 68%; left: 22%; animation-delay: 1.5s; }
+.star-pos-6 { top: 82%; left: 58%; animation-delay: 0.4s; }
+.star-pos-7 { top: 25%; left: 45%; animation-delay: 1.8s; }
+
+/* Clean Floating Candy Accents in Empty Places (Uncluttered) */
+.fill-gummy { width: 60px; top: 72%; left: 45%; opacity: 0.6; animation: fillFloat 11s infinite ease-in-out reverse; }
+.fill-candy { width: 55px; top: 28%; left: 22%; opacity: 0.55; animation: fillFloat 8s infinite ease-in-out; }
+.fill-candycane { width: 60px; top: 46%; left: 42%; opacity: 0.5; animation: fillFloat 10s infinite ease-in-out reverse; }
+.fill-lollipop { width: 60px; top: 12%; left: 30%; opacity: 0.6; animation: fillFloat 12s infinite ease-in-out; }
+
+@keyframes fillFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(16deg); }
 }
 
 
-/* =========================================
-   2. HEADER & LOGO WITH C, Y, R, H BIGGER
-========================================= */
-
+/* --------------------------------------------------------------------------
+   3. STICKY HEADER & POPPING LOGO
+   -------------------------------------------------------------------------- */
 header {
-    position: relative;
-    z-index: 20;
-    max-width: 1500px;
-    margin: auto;
-    padding: 30px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    padding: 16px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 25px;
+    background: rgba(14, 8, 22, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Logo Badge */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     flex-shrink: 0;
-    gap: 12px;
-    transition: transform 0.3s ease;
 }
 
-.logo:hover {
-    transform: scale(1.06);
-}
-
-.logo-badge {
-    width: 58px;
-    height: 58px;
-    background: radial-gradient(circle, #ff5c8a, #9b5de5);
+/* Circled & Highlighted Logo Frame */
+.logo-circle-frame {
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
+    border: 2.5px solid #ff5c8a;
+    box-shadow: 0 0 22px rgba(255, 92, 138, 0.75), inset 0 0 10px rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 20px rgba(255, 92, 138, 0.6);
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.08);
+    margin-right: 14px;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    flex-shrink: 0;
 }
 
-.badge-icon {
-    font-size: 28px;
+.logo-circle-frame img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
 }
 
-/* CandyRush Logo Typography - Highlighted C, Y, R, H */
+.logo:hover .logo-circle-frame {
+    transform: scale(1.12) rotate(8deg);
+    box-shadow: 0 0 28px rgba(255, 212, 59, 0.9), inset 0 0 15px rgba(255, 92, 138, 0.5);
+    border-color: #ffd43b;
+}
+
+/* SEPARATE POP UP EFFECT FOR EVERY LETTER IN CANDYRUSH */
 .candy-name {
-    font-family: 'Fredoka', cursive, sans-serif;
-    font-size: 38px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 40px;
     font-weight: 800;
-    display: flex;
-    align-items: baseline;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    display: inline-flex;
 }
 
 .candy-name span {
     display: inline-block;
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.25s ease;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease, text-shadow 0.3s ease, filter 0.3s ease;
 }
 
-/* HIGHLIGHTED BIGGER LETTERS: C, Y, R, H */
-.candy-name span.big-letter {
-    font-size: 1.48em;
-    font-weight: 900;
-    line-height: 0.9;
-    transform: scale(1.15);
-    vertical-align: middle;
-    filter: drop-shadow(0 0 12px currentColor);
-    margin: 0 1px;
+/* Pop up hover effect for individual letters */
+.candy-name span:hover {
+    transform: translateY(-12px) scale(1.45) rotate(6deg);
+    filter: brightness(1.25);
+    text-shadow: 0 0 20px currentColor, 0 10px 20px rgba(0, 0, 0, 0.8);
 }
 
-.candy-name span:nth-child(1) { color: #ff3973; } /* C - BIG */
+/* Distinct Vibrant Colors for CandyRush Letters */
+.candy-name span:nth-child(1) { color: #ff5c8a; } /* C */
 .candy-name span:nth-child(2) { color: #ffd43b; } /* a */
 .candy-name span:nth-child(3) { color: #c77dff; } /* n */
 .candy-name span:nth-child(4) { color: #63e6be; } /* d */
-.candy-name span:nth-child(5) { color: #ff8fab; } /* y - BIG */
-.candy-name span:nth-child(6) { color: #ffb703; } /* R - BIG */
+.candy-name span:nth-child(5) { color: #ff8fab; } /* y */
+.candy-name span:nth-child(6) { color: #ffb703; } /* R */
 .candy-name span:nth-child(7) { color: #a78bfa; } /* u */
 .candy-name span:nth-child(8) { color: #5eead4; } /* s */
-.candy-name span:nth-child(9) { color: #ff5252; } /* h - BIG */
-
-.logo:hover .candy-name span {
-    transform: translateY(-3px) scale(1.1);
-}
-
-.logo:hover .candy-name span.big-letter {
-    transform: translateY(-4px) scale(1.28);
-}
+.candy-name span:nth-child(9) { color: #ff6b6b; } /* h */
 
 
-/* =========================================
-   3. NAVIGATION WITH TINY BOY PULLING CART
-========================================= */
-
-.nav-container {
-    position: relative;
+/* --------------------------------------------------------------------------
+   4. NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+nav {
     display: flex;
     align-items: center;
-    gap: 38px;
-    background: rgba(25, 15, 32, 0.85);
-    padding: 18px 40px;
+    gap: 36px;
+    background: rgba(32, 22, 38, 0.85);
+    padding: 14px 34px;
     border-radius: 40px;
-    border: 1.5px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    margin-top: 15px;
-}
-
-/* Tiny Boy Pulling Candy Cart Track Above Nav */
-.nav-cart-track {
-    position: absolute;
-    top: -32px;
-    left: 0;
-    right: 0;
-    height: 32px;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.boy-cart-runner {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    animation: boyCartRun 15s infinite linear;
-}
-
-.boy-char {
-    font-size: 26px;
-    animation: boyWalkBounce 0.4s infinite alternate ease-in-out;
-}
-
-.cart-rope {
-    font-size: 14px;
-    color: #ffd43b;
-    font-weight: bold;
-    letter-spacing: -2px;
-    margin: 0 -2px;
-}
-
-.candy-cart {
-    font-size: 22px;
-}
-
-@keyframes boyCartRun {
-    0% {
-        left: -120px;
-    }
-    100% {
-        left: calc(100% + 40px);
-    }
-}
-
-@keyframes boyWalkBounce {
-    0% { transform: translateY(0) rotate(-4deg); }
-    100% { transform: translateY(-4px) rotate(4deg); }
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
 }
 
 nav a {
-    display: inline-block;
     position: relative;
-    color: #e0e0e0;
+    color: #e2e8f0;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 600;
     padding: 4px 6px;
-    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.25s ease, text-shadow 0.25s ease;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.3s ease;
 }
 
 nav a::after {
@@ -378,201 +539,164 @@ nav a::after {
     border-radius: 3px;
     background: currentColor;
     transform: translateX(-50%);
-    transition: width 0.25s ease, box-shadow 0.25s ease;
+    transition: width 0.25s ease;
 }
 
 nav a:hover {
-    transform: scale(1.22) translateY(-3px);
+    transform: scale(1.18) translateY(-3px);
 }
 
 nav a:hover::after {
-    width: 80%;
-    box-shadow: 0 0 10px currentColor;
+    width: 85%;
 }
 
-nav a:nth-child(1):hover { color: #ff5c8a; text-shadow: 0 0 15px rgba(255, 92, 138, 0.8); }
-nav a:nth-child(2):hover { color: #ffd43b; text-shadow: 0 0 15px rgba(255, 212, 59, 0.8); }
-nav a:nth-child(3):hover { color: #c77dff; text-shadow: 0 0 15px rgba(199, 125, 255, 0.8); }
-nav a:nth-child(4):hover { color: #63e6be; text-shadow: 0 0 15px rgba(99, 230, 190, 0.8); }
+/* Nav Link Hover Color Highlights */
+nav a:nth-child(1):hover { color: #ff5c8a; }
+nav a:nth-child(2):hover { color: #ffd43b; }
+nav a:nth-child(3):hover { color: #c77dff; }
+nav a:nth-child(4):hover { color: #63e6be; }
 
 
-/* =========================================
-   4. MELTED CHOCOLATE HEADER ACTIONS
-========================================= */
-
+/* --------------------------------------------------------------------------
+   5. HEADER ACTIONS (ASSET ICONS, NO CIRCLES)
+   -------------------------------------------------------------------------- */
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 20px;
 }
 
-/* Melted Chocolate Base Styling */
-.melted-choco {
-    position: relative;
-    background: linear-gradient(135deg, #4A2311 0%, #6B3419 60%, #2A1108 100%) !important;
-    border: 1.5px solid #8C4A26 !important;
-    box-shadow:
-        inset 0 2px 4px rgba(255, 255, 255, 0.25),
-        0 8px 20px rgba(42, 17, 8, 0.7) !important;
-    color: #FFE6D5 !important;
-}
-
-.melted-choco:hover {
-    transform: scale(1.15) translateY(-4px) !important;
-    box-shadow:
-        inset 0 2px 6px rgba(255, 215, 0, 0.4),
-        0 12px 25px rgba(255, 140, 0, 0.5) !important;
-    border-color: #D47A3E !important;
-    color: #FFD700 !important;
-}
-
-/* Melted Chocolate Bottom Drip Effect */
-.choco-drip {
-    position: absolute;
-    bottom: -6px;
-    left: 20%;
-    right: 20%;
-    height: 7px;
-    background: #3B1B0D;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
-    pointer-events: none;
-}
-
-.icon.melted-choco, .cart.melted-choco {
-    width: 48px;
-    height: 48px;
-    display: flex;
+.icon-asset-link {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
     text-decoration: none;
-    font-size: 22px;
-    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    padding: 2px;
+    transition: transform 0.28s ease, filter 0.28s ease;
+}
+
+.action-icon-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+    transition: transform 0.28s ease;
+}
+
+.icon-asset-link:hover {
+    transform: scale(1.22) translateY(-4px);
+}
+
+.icon-asset-link:hover .action-icon-img {
+    filter: drop-shadow(0 8px 18px rgba(255, 92, 138, 0.7));
+}
+
+.cart-asset-link {
+    position: relative;
 }
 
 .cart-count {
     position: absolute;
-    top: -5px;
-    right: -4px;
-    width: 22px;
-    height: 22px;
+    top: -4px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #ff4e50, #f9d423);
-    color: #1a050d;
+    background: #ff5c8a;
+    color: #ffffff;
     border-radius: 50%;
     font-size: 11px;
-    font-weight: 800;
-    box-shadow: 0 2px 8px rgba(255, 78, 80, 0.6);
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* Shop Sweets Melted Chocolate Button */
-.melted-choco-btn {
-    position: relative;
-    background: linear-gradient(135deg, #5C2B14 0%, #8C4722 50%, #3B1A0B 100%);
-    color: #FFF3E6;
+.shop {
+    background: linear-gradient(135deg, #ff5c8a, #ffb703);
+    color: #ffffff;
     text-decoration: none;
-    font-family: 'Fredoka', sans-serif;
     font-size: 16px;
     font-weight: 800;
-    padding: 15px 30px;
+    padding: 14px 28px;
     border-radius: 40px;
-    border: 2px solid #A65A2E;
-    box-shadow:
-        inset 0 3px 6px rgba(255, 255, 255, 0.3),
-        0 10px 25px rgba(44, 18, 7, 0.7);
-    transition: all 0.28s ease;
+    transition: all 0.3s ease;
     white-space: nowrap;
+    box-shadow: 0 8px 25px rgba(255, 92, 138, 0.38);
 }
 
-.melted-choco-btn:hover {
+.shop:hover {
+    background: linear-gradient(135deg, #ff3973, #ffd43b);
     transform: scale(1.08) translateY(-4px);
-    background: linear-gradient(135deg, #7A3B1B 0%, #A65A2E 50%, #5C2B14 100%);
-    box-shadow:
-        inset 0 3px 8px rgba(255, 215, 0, 0.4),
-        0 14px 30px rgba(212, 122, 62, 0.6);
-    color: #FFD700;
-}
-
-.choco-btn-drip {
-    position: absolute;
-    bottom: -8px;
-    left: 25%;
-    width: 50%;
-    height: 8px;
-    background: #3B1A0B;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
-    pointer-events: none;
+    box-shadow: 0 12px 30px rgba(255, 183, 3, 0.55);
 }
 
 
-/* =========================================
-   5. BANNER SLIDER & FULL SCREEN GAP
-========================================= */
-
+/* --------------------------------------------------------------------------
+   6. BANNER SLIDER & HANGING THREAD CANDIES
+   -------------------------------------------------------------------------- */
 main {
     position: relative;
-    z-index: 5;
+    /* top: 150PX; */
+    z-index: 2;
 }
 
 .slider {
     width: calc(100% - 100px);
     max-width: 1450px;
-    margin: 0 auto;
+    margin: 30px auto 0 auto;
     height: 620px;
     overflow: hidden;
     position: relative;
-    border-radius: 36px;
+    border-radius: 32px;
     box-shadow:
-        0 30px 60px rgba(0, 0, 0, 0.6),
-        inset 0 0 0 1.5px rgba(255, 255, 255, 0.18);
+        0 25px 50px rgba(0, 0, 0, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .slides {
     display: flex;
     width: 300%;
     height: 100%;
-    transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Banner Nav Buttons (< > Keys) */
+/* Banner Navigation Arrow Buttons (< >) */
 .banner-nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 58px;
-    height: 58px;
+    width: 54px;
+    height: 54px;
     background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
     border-radius: 50%;
     color: #ffffff;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
     font-family: Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 40;
+    z-index: 30;
     transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     user-select: none;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .nav-prev { left: 25px; }
 .nav-next { right: 25px; }
 
 .banner-nav:hover {
-    background: rgba(255, 255, 255, 0.38);
+    background: rgba(255, 255, 255, 0.35);
     color: #ffd43b;
-    border-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.7);
     transform: translateY(-50%) scale(1.2);
-    box-shadow: 0 14px 35px rgba(255, 92, 138, 0.6);
+    box-shadow: 0 12px 30px rgba(255, 92, 138, 0.5);
 }
 
 .banner-nav:active {
@@ -592,105 +716,58 @@ main {
 
 .banner-content {
     position: relative;
-    z-index: 10;
-    max-width: 640px;
+    z-index: 5;
+    max-width: 620px;
+}
+
+.small-title {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
 }
 
 .banner h1 {
     font-size: 68px;
-    line-height: 1;
+    line-height: 0.98;
     font-weight: 800;
-    margin-bottom: 22px;
-}
-
-.banner h1 span {
-    display: block;
+    margin-bottom: 25px;
 }
 
 .banner p {
-    font-size: 18px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
     line-height: 1.7;
-    max-width: 550px;
-    margin-bottom: 32px;
+    max-width: 540px;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 30px;
 }
 
 .banner-button {
     display: inline-block;
     text-decoration: none;
-    color: white;
-    padding: 16px 32px;
-    border-radius: 35px;
-    font-size: 15px;
-    font-weight: 800;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
     transition: all 0.3s ease;
 }
 
-
-/* =========================================
-   6. VINTAGE BANNER + INTERACTIVE HANGING CANDIES
-========================================= */
-
-.vintage {
-    font-family: 'Playfair Display', serif;
-    background:
-        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.35), transparent 45%),
-        radial-gradient(circle at 20% 80%, rgba(140, 74, 35, 0.5), transparent 45%),
-        linear-gradient(135deg, #2b1104 0%, #5c2c12 40%, #8c4a23 75%, #d98a4e 100%);
-    border-right: 4px solid #d98a4e;
-}
-
-.vintage .small-title {
-    font-family: 'Cinzel', 'Playfair Display', serif;
-    color: #FFE699;
-    background: rgba(255, 215, 0, 0.15);
-    border: 1px solid rgba(255, 215, 0, 0.4);
-    padding: 6px 20px;
-    border-radius: 20px;
-    font-size: 13px;
-    letter-spacing: 2px;
-}
-
-.vintage h1 {
-    color: #FFF8EB;
-    font-style: italic;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-}
-
-.vintage h1 span {
-    font-family: 'Playfair Display', serif;
-    background: linear-gradient(45deg, #FFD700, #FF9F43, #FF5252);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 10px rgba(255, 215, 0, 0.4));
-}
-
-.vintage p {
-    font-family: Arial, sans-serif;
-    color: #F7E4D0;
-}
-
-.vintage-button {
-    font-family: 'Fredoka', sans-serif;
-    background: linear-gradient(135deg, #ff4e50, #f9d423);
-    color: #1a050d;
-    box-shadow: 0 8px 25px rgba(255, 78, 80, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-.vintage-button:hover {
-    background: linear-gradient(135deg, #f9d423, #ff4e50);
-    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6);
+.banner-button:hover {
     transform: translateY(-4px) scale(1.05);
 }
 
-/* Interactive Hanging Candies in Top Left Corner */
+/* 2 TO 3 HANGING THREAD CANDIES IN TOP LEFT CORNER OF EACH BANNER */
 .hanging-candies-corner {
     position: absolute;
     top: 0;
-    left: 8%;
+    left: 6%;
     display: flex;
-    gap: 28px;
-    z-index: 15;
+    gap: 22px;
+    z-index: 30;
     pointer-events: auto;
 }
 
@@ -700,532 +777,420 @@ main {
     align-items: center;
     cursor: pointer;
     transform-origin: top center;
-    animation: threadSway 3s ease-in-out infinite alternate;
+    animation: threadSway 3.5s ease-in-out infinite alternate;
 }
 
 .thread-1 { animation-delay: 0s; }
-.thread-2 { animation-delay: 0.6s; }
-.thread-3 { animation-delay: 1.2s; }
-.thread-4 { animation-delay: 1.8s; }
+.thread-2 { animation-delay: 0.8s; }
+.thread-3 { animation-delay: 1.5s; }
 
 .hanging-candy .thread {
+    display: block;
     width: 2px;
-    background: linear-gradient(to bottom, rgba(255, 215, 0, 0.8), rgba(255, 255, 255, 0.4));
-    box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(255, 215, 0, 0.9), rgba(255, 255, 255, 0.4));
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
 }
 
-.thread-1 .thread { height: 90px; }
-.thread-2 .thread { height: 130px; }
-.thread-3 .thread { height: 80px; }
-.thread-4 .thread { height: 110px; }
+.thread-2 .thread { height: 170px; }
+.thread-3 .thread { height: 75px; }
 
-.candy-item {
-    font-size: 38px;
-    margin-top: -5px;
-    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.5));
-    transition: transform 0.2s ease;
+.hanging-img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    margin-top: -2px;
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+    transition: transform 0.25s ease;
 }
 
-.hanging-candy:hover .candy-item {
-    transform: scale(1.3);
-}
-
-.pop-candy {
-    animation: popBounce 0.6s ease-in-out !important;
+.hanging-candy:hover .hanging-img {
+    transform: scale(1.35) rotate(15deg);
 }
 
 @keyframes threadSway {
-    0% { transform: rotate(-8deg); }
-    100% { transform: rotate(8deg); }
+    0% { transform: rotate(-9deg); }
+    100% { transform: rotate(9deg); }
 }
 
-@keyframes threadSwayFast {
-    0% { transform: rotate(-20deg); }
-    100% { transform: rotate(20deg); }
-}
-
-@keyframes popBounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.5) rotate(15deg); }
-    100% { transform: scale(1); }
-}
-
-.vintage-decor .candy-jar {
-    position: absolute;
-    right: 12%;
-    bottom: 60px;
-    font-size: 140px;
-    filter: drop-shadow(0 15px 30px rgba(255, 215, 0, 0.4));
-    animation: jarFloat 4s infinite ease-in-out;
-}
-
-.vintage-decor .large-candy {
-    position: absolute;
-    right: 4%;
-    top: 60px;
-    font-size: 100px;
-    filter: drop-shadow(0 15px 25px rgba(255, 78, 80, 0.4));
-    animation: candySpin 6s infinite ease-in-out;
-}
-
-
-/* =========================================
-   7. CANDY WONDERLAND + TINY GIRL CATCHING CANDY
-========================================= */
-
-.wonderland {
-    font-family: 'Pacifico', cursive;
+/* BANNER 1: VINTAGE */
+.vintage {
     background:
-        radial-gradient(circle at 80% 30%, #ff70c7, transparent 35%),
-        radial-gradient(circle at 20% 80%, #6955ff, transparent 35%),
-        linear-gradient(135deg, #38104d 0%, #69287a 40%, #9e3d92 75%, #e06bb2 100%);
+        radial-gradient(circle at 75% 50%, rgba(255, 207, 145, 0.4), transparent 35%),
+        linear-gradient(120deg, #422019, #7a3e26, #b0653d);
 }
 
-.wonderland .small-title {
-    font-family: 'Fredoka', sans-serif;
-    color: #FFB6ED;
+.vintage .small-title { color: #ffe1a8; }
+.vintage h1 { color: #fff1d0; }
+.vintage h1 span {
+    background: linear-gradient(45deg, #ffd700, #ff9f43, #ff5252);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(255, 215, 0, 0.4));
 }
 
-.wonderland h1 {
-    color: white;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+.vintage-button {
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    color: #1a050d;
+    box-shadow: 0 8px 25px rgba(255, 78, 80, 0.4);
 }
 
+.vintage-button:hover {
+    background: linear-gradient(135deg, #f9d423, #ff4e50);
+    box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6);
+}
+
+/* BANNER 2: WONDERLAND */
+.wonderland {
+    background:
+        radial-gradient(circle at 80% 30%, rgba(255, 112, 199, 0.4), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(105, 85, 255, 0.4), transparent 30%),
+        linear-gradient(120deg, #301052, #54238a, #2e236c);
+}
+
+.wonderland .small-title { color: #ffb6ed; }
+.wonderland h1 { color: #ffffff; }
 .wonderland h1 span {
-    font-family: 'Pacifico', cursive;
-    color: #FF8DE1;
-    filter: drop-shadow(0 0 12px #ff8de1);
-}
-
-.wonderland p {
-    font-family: 'Quicksand', sans-serif;
-    color: #F8E2FF;
+    background: linear-gradient(45deg, #ff70c7, #a78bfa, #5eead4);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(255, 112, 199, 0.4));
 }
 
 .wonderland-button {
-    font-family: 'Fredoka', sans-serif;
-    background: linear-gradient(135deg, #d94bb9, #8c23a0);
-    box-shadow: 0 8px 25px rgba(217, 75, 185, 0.5);
+    background: linear-gradient(135deg, #d94bb9, #6955ff);
+    box-shadow: 0 8px 25px rgba(217, 75, 185, 0.4);
 }
 
 .wonderland-button:hover {
-    background: linear-gradient(135deg, #8c23a0, #d94bb9);
-    transform: translateY(-4px) scale(1.05);
+    background: linear-gradient(135deg, #6955ff, #d94bb9);
+    box-shadow: 0 12px 30px rgba(105, 85, 255, 0.6);
 }
 
-/* Tiny Girl Catching Floating Candy */
-.wonderland-scene {
-    position: absolute;
-    right: 8%;
-    top: 0;
-    bottom: 0;
-    width: 40%;
-    pointer-events: none;
-}
-
-.girl-catcher-wrap {
-    position: absolute;
-    right: 25%;
-    bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: girlReach 3s infinite ease-in-out;
-}
-
-.floating-target-candy {
-    font-size: 65px;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 0 20px #ff70c7);
-    animation: targetFloat 2s infinite alternate ease-in-out;
-}
-
-.tiny-girl {
-    font-size: 85px;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
-}
-
-.magic-sparkles {
-    position: absolute;
-    top: -10px;
-    font-size: 24px;
-    animation: sparkleSpin 2s infinite linear;
-}
-
-@keyframes girlReach {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-25px) rotate(-6deg); }
-}
-
-@keyframes targetFloat {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(-15px) scale(1.1); }
-}
-
-@keyframes sparkleSpin {
-    0% { transform: rotate(0deg) scale(0.8); }
-    100% { transform: rotate(360deg) scale(1.2); }
-}
-
-.candy-big { right: 5%; top: 60px; font-size: 150px; }
-.candy-small { right: 50%; bottom: 60px; font-size: 65px; }
-.candy-choco { right: 2%; bottom: 40px; font-size: 80px; }
-
-
-/* =========================================
-   8. CANDY FESTIVAL + CRACKERS & BOXES
-========================================= */
-
+/* BANNER 3: FESTIVAL */
 .festival {
-    font-family: 'Titan One', cursive;
     background:
-        radial-gradient(circle at 80% 20%, #ffcf33, transparent 30%),
-        radial-gradient(circle at 15% 80%, #ff5ca8, transparent 30%),
-        linear-gradient(135deg, #103042 0%, #186073 40%, #2b918f 75%, #ff6b6b 100%);
+        radial-gradient(circle at 80% 20%, rgba(255, 207, 51, 0.4), transparent 25%),
+        radial-gradient(circle at 15% 80%, rgba(255, 92, 168, 0.4), transparent 30%),
+        linear-gradient(120deg, #173f50, #126b76, #293c72);
 }
 
-.festival .small-title {
-    font-family: 'Fredoka', sans-serif;
-    color: #9FFFE7;
-}
-
-.festival h1 {
-    color: white;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
+.festival .small-title { color: #9fffe7; }
+.festival h1 { color: #ffffff; }
 .festival h1 span {
-    font-family: 'Titan One', cursive;
-    color: #FFD43B;
-    filter: drop-shadow(0 0 12px #ffd43b);
-}
-
-.festival p {
-    font-family: 'Quicksand', sans-serif;
-    color: #E2FFF8;
+    background: linear-gradient(45deg, #ffd43b, #ff5c8a, #63e6be);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(255, 212, 59, 0.4));
 }
 
 .festival-button {
-    font-family: 'Fredoka', sans-serif;
-    background: linear-gradient(135deg, #ff5c8a, #ff9f43);
-    box-shadow: 0 8px 25px rgba(255, 92, 138, 0.5);
+    background: linear-gradient(135deg, #ff5c8a, #ffcf33);
+    box-shadow: 0 8px 25px rgba(255, 92, 138, 0.4);
 }
 
 .festival-button:hover {
-    background: linear-gradient(135deg, #ff9f43, #ff5c8a);
-    transform: translateY(-4px) scale(1.05);
+    background: linear-gradient(135deg, #ffcf33, #ff5c8a);
+    box-shadow: 0 12px 30px rgba(255, 207, 51, 0.6);
 }
 
-/* Festival Candy Crackers & Boxes */
-.festival-scene {
+/* Banner Decoration PNG Images */
+.banner-decoration {
     position: absolute;
-    right: 5%;
-    top: 0;
-    bottom: 0;
-    width: 45%;
+    inset: 0;
     pointer-events: none;
+    z-index: 2;
 }
 
-.festival-element {
+.banner-decor-img {
     position: absolute;
-    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.4));
-    animation: crackerPop 3s infinite ease-in-out alternate;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.5));
 }
 
-.cracker-1 { right: 12%; top: 70px; font-size: 110px; animation-delay: 0s; }
-.box-1 { right: 35%; bottom: 60px; font-size: 100px; animation-delay: 0.8s; }
-.cracker-2 { right: 5%; bottom: 80px; font-size: 85px; animation-delay: 1.5s; }
-.box-2 { right: 48%; top: 90px; font-size: 70px; animation-delay: 2.2s; }
+.decor-1 { width: 200px; right: 15%; top:270px; bottom: 80px; animation: bannerImgFloat 4s infinite ease-in-out; }
+.decor-2 { width: 90px; right: 6%; top: 80px; animation: bannerImgFloat 5s infinite ease-in-out reverse; }
+.decor-3 { width: 75px; right: 28%; top: 100px; animation: bannerImgFloat 4.5s infinite ease-in-out; }
 
-@keyframes crackerPop {
-    0% { transform: scale(1) rotate(-5deg); }
-    50% { transform: scale(1.15) rotate(8deg); }
-    100% { transform: scale(1) rotate(-5deg); }
+@keyframes bannerImgFloat {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50% { transform: translateY(-25px) rotate(8deg); }
 }
 
-
-/* =========================================
-   9. SLIDER DOTS
-========================================= */
-
+/* Slider Dots */
 .slider-dots {
     position: absolute;
-    bottom: 25px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 12px;
-    z-index: 40;
+    z-index: 30;
 }
 
 .dot {
-    width: 14px;
-    height: 14px;
+    width: 12px;
+    height: 12px;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.4);
 }
 
 .dot:hover, .dot.active {
-    background: #FFFFFF;
+    background: #ffffff;
     transform: scale(1.4);
-    box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
 
-/* =========================================
-   10. FULL SCREEN CANDY WRAPPER CARDS SECTION
-========================================= */
-
+/* --------------------------------------------------------------------------
+   7. CANDY CARDS SECTION & STYLED SUBTITLE
+   -------------------------------------------------------------------------- */
 .candy-cards-section {
-    width: 100%;
-    min-height: 100vh;
-    padding: 90px 50px;
     position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    z-index: 5;
+    padding: 60px 50px;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 .candy-section-heading {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 35px;
+    background: rgba(5, 29, 37, 0.88);
+    border: 2px solid rgba(65, 10, 32, 0.45);
+    border-radius: 32px;
+    padding: 24px 35px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 15px 35px rgba(114, 18, 143, 0.719), 0 0 25px rgba(255, 92, 138, 0.25);
+    backdrop-filter: blur(1px);
 }
 
 .heading-badge {
     display: inline-block;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 14px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 16px;
     font-weight: 800;
-    color: #FFD700;
-    background: rgba(255, 215, 0, 0.15);
-    border: 1.5px solid rgba(255, 215, 0, 0.4);
-    padding: 6px 22px;
+    color: #e2e0db;
+    background: rgba(7, 58, 50, 0.22);
+    border: 1.8px solid #bdbbb4;
+    padding: 6px 24px;
     border-radius: 30px;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+    letter-spacing: 2.5px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 12px rgba(32, 30, 23, 0.8);
+    box-shadow: 0 4px 15px rgba(224, 220, 208, 0.3);
 }
 
-.candy-section-heading h2 {
-    font-family: 'Bungee', 'Fredoka', cursive;
-    font-size: 52px;
-    color: #FFFFFF;
-    text-shadow: 0 0 25px rgba(255, 92, 138, 0.6);
-    margin-bottom: 12px;
-}
-
-.candy-section-heading p {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.85);
-}
-
-/* Full Screen Candy Wrapper Cards Grid */
-.candy-cards-container {
-    width: 100%;
-    max-width: 1500px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
-
-/* Metallic Candy Wrapper Card */
-.candy-wrapper-card {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-radius: 24px;
-    padding: 0 10px;
-    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
-}
-
-.candy-wrapper-card:hover {
-    transform: translateY(-12px) scale(1.03);
-}
-
-/* Twist Ends (Jagged Candy Wrapper Ends) */
-.wrapper-twist {
-    width: 30px;
-    height: 80%;
-    background: inherit;
-    flex-shrink: 0;
-    position: relative;
-    opacity: 0.9;
-}
-
-.twist-left {
-    clip-path: polygon(100% 0, 0 15%, 40% 35%, 0 50%, 40% 65%, 0 85%, 100% 100%);
-    border-radius: 10px 0 0 10px;
-}
-
-.twist-right {
-    clip-path: polygon(0 0, 100% 15%, 60% 35%, 100% 50%, 60% 65%, 100% 85%, 0 100%);
-    border-radius: 0 10px 10px 0;
-}
-
-/* Wrapper Body */
-.wrapper-body {
-    position: relative;
-    flex-grow: 1;
-    padding: 38px 28px;
-    border-radius: 24px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    box-shadow:
-        inset 0 4px 8px rgba(255, 255, 255, 0.35),
-        0 20px 45px rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-}
-
-/* Glossy Foil Metallic Shine Effect */
-.card-foil-shine {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 40%,
-        rgba(255, 255, 255, 0.25) 50%,
-        transparent 60%
-    );
-    transform: rotate(30deg);
-    pointer-events: none;
-    transition: transform 0.6s ease;
-}
-
-.candy-wrapper-card:hover .card-foil-shine {
-    transform: rotate(30deg) translate(20%, 20%);
-}
-
-.wrapper-stamp {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 11px;
+/* HIGH-VISIBILITY STYLES FOR SUBTITLE PARAGRAPH <p> */
+.heading-subtitle {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 24px;
     font-weight: 800;
-    letter-spacing: 3px;
-    padding: 4px 14px;
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.25);
-    color: #FFFFFF;
-    margin-bottom: 18px;
+    background: linear-gradient(90deg, #871536, #cd0c63, #63e6be);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(121, 9, 41, 0.7));
+    margin-top: 6px;
 }
 
-.wrapper-icon-box {
-    font-size: 65px;
-    margin-bottom: 14px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+/* BULLETIN TICKER MARQUEE: "PICK YOUR SWEET" */
+.marquee-bulletin-wrap {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
+    background: linear-gradient(90deg, #ff5c8a, #9b5de5, #ffd43b, #63e6be, #ff5c8a);
+    padding: 16px 0;
+    margin-bottom: 55px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+.marquee-content {
+    display: flex;
+    white-space: nowrap;
+    animation: marqueeScroll 18s linear infinite;
+}
+
+.marquee-content span {
+    font-family: 'Baloo 2', cursive;
+    font-size: 50px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 3px;
+    padding-right: 20px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* CANDY CARDS GRID WITH HIGH-VISIBILITY BORDER & CONTRAST */
+.candy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+}
+
+.candy-pop-card {
+    background: rgba(22, 12, 30, 0.92);
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), inset 0 0 15px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.candy-pop-card:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 24px 50px rgba(255, 92, 138, 0.5);
+    border-color: #ffd43b;
+}
+
+.card-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    background: rgba(255, 212, 59, 0.2);
+    border: 1px solid #ffd43b;
+    color: #ffd43b;
+    margin-bottom: 16px;
+    text-shadow: 0 0 8px rgba(255, 212, 59, 0.6);
+}
+
+.card-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
     transition: transform 0.3s ease;
 }
 
-.candy-wrapper-card:hover .wrapper-icon-box {
+.candy-pop-card:hover .card-icon {
     transform: scale(1.2) rotate(10deg);
 }
 
-.wrapper-body h3 {
-    font-family: 'Bungee', 'Fredoka', sans-serif;
+.candy-pop-card h3 {
     font-size: 26px;
-    color: #FFFFFF;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.candy-flavor-tag {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: #FFD700;
-    margin-bottom: 14px;
-}
-
-.wrapper-body p {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 24px;
-}
-
-.wrapper-btn {
-    font-family: 'Fredoka', sans-serif;
-    text-decoration: none;
-    font-size: 14px;
     font-weight: 800;
-    color: #1A050D;
-    background: #FFFFFF;
+    margin-bottom: 12px;
+}
+
+/* DISTINCT HEADING COLORS FOR EACH CANDY CARD */
+.heading-gold { color: #FFD700 !important; text-shadow: 0 0 14px rgba(255, 215, 0, 0.7); }
+.heading-pink { color: #FF4081 !important; text-shadow: 0 0 14px rgba(255, 64, 129, 0.7); }
+.heading-amber { color: #FFB300 !important; text-shadow: 0 0 14px rgba(255, 179, 0, 0.7); }
+.heading-cyan { color: #00E5FF !important; text-shadow: 0 0 14px rgba(0, 229, 255, 0.7); }
+
+.candy-pop-card p {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.card-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    background: #ff5c8a;
     padding: 12px 26px;
     border-radius: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.28s ease;
+    font-weight: 800;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-.wrapper-btn:hover {
-    background: #FFD700;
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+.card-btn:hover {
+    background: #ff3973;
+    transform: scale(1.06);
+    box-shadow: 0 8px 20px rgba(255, 92, 138, 0.55);
 }
 
-/* Individual Card Metallic Wrapper Themes */
-.wrapper-choco .wrapper-body, .wrapper-choco .wrapper-twist {
-    background: linear-gradient(135deg, #4A200E 0%, #7A3B1B 50%, #301306 100%);
+
+/* --------------------------------------------------------------------------
+   8. EMPTY FULL SCREEN BACKGROUND VIEW SECTION
+   -------------------------------------------------------------------------- */
+.bg-experience-section-empty {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
 }
-.wrapper-choco:hover { box-shadow: 0 25px 50px rgba(122, 59, 27, 0.5); }
-
-.wrapper-strawberry .wrapper-body, .wrapper-strawberry .wrapper-twist {
-    background: linear-gradient(135deg, #9E1B42 0%, #E63968 50%, #6E0D2A 100%);
-}
-.wrapper-strawberry:hover { box-shadow: 0 25px 50px rgba(230, 57, 104, 0.5); }
-
-.wrapper-caramel .wrapper-body, .wrapper-caramel .wrapper-twist {
-    background: linear-gradient(135deg, #A86518 0%, #E09834 50%, #6B3C07 100%);
-}
-.wrapper-caramel:hover { box-shadow: 0 25px 50px rgba(224, 152, 52, 0.5); }
-
-.wrapper-rainbow .wrapper-body, .wrapper-rainbow .wrapper-twist {
-    background: linear-gradient(135deg, #7B1FA2 0%, #C2185B 35%, #0288D1 70%, #388E3C 100%);
-}
-.wrapper-rainbow:hover { box-shadow: 0 25px 50px rgba(194, 24, 91, 0.5); }
 
 
-/* =========================================
-   11. RESPONSIVE DESIGN
-========================================= */
-
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE MEDIA QUERIES
+   -------------------------------------------------------------------------- */
 @media (max-width: 1200px) {
-    header { padding: 25px 30px; }
-    .candy-name { font-size: 32px; }
-    .nav-container { padding: 14px 25px; gap: 20px; }
-    .slider { width: calc(100% - 40px); height: 600px; }
-    .banner h1 { font-size: 54px; }
+    header { padding: 16px 30px; }
+    .candy-name { font-size: 34px; }
+    .logo-circle-frame { width: 55px; height: 55px; }
+    .logo-circle-frame img { width: 40px; height: 40px; }
+    nav { gap: 20px; padding: 14px 25px; }
+    nav a { font-size: 16px; }
+    .header-actions { gap: 14px; }
+    .shop { padding: 12px 22px; font-size: 14px; }
+    .banner h1 { font-size: 55px; }
 }
 
 @media (max-width: 900px) {
     header { flex-wrap: wrap; justify-content: center; }
     .logo { width: 100%; justify-content: center; }
-    .nav-container { width: 100%; justify-content: center; }
-    .header-actions { width: 100%; justify-content: center; margin-top: 10px; }
-    .slider { width: calc(100% - 30px); margin: 0 15px; height: 640px; }
-    .banner { padding: 40px 6%; }
-    .banner h1 { font-size: 44px; }
-    .banner-nav { width: 46px; height: 46px; font-size: 22px; }
-    .nav-cart-track { display: none; }
+    nav { order: 2; }
+    .header-actions { order: 3; }
+    .slider { width: calc(100% - 40px); margin: 20px 20px 0 20px; height: 650px; border-radius: 24px; }
+    .banner-nav { width: 44px; height: 44px; font-size: 20px; }
+    .nav-prev { left: 12px; }
+    .nav-next { right: 12px; }
+    .banner { padding: 50px 8%; }
+    .banner h1 { font-size: 46px; }
+    .banner p { font-size: 15px; }
+    .banner-decoration { opacity: 0.45; }
 }
 
 @media (max-width: 600px) {
-    .candy-name { font-size: 26px; }
-    .slider { width: calc(100% - 20px); margin: 0 10px; height: 580px; border-radius: 20px; }
-    .banner h1 { font-size: 36px; }
+    header { padding: 14px 15px; gap: 12px; }
+    .candy-name { font-size: 28px; }
+    .logo-circle-frame { width: 48px; height: 48px; }
+    .logo-circle-frame img { width: 34px; height: 34px; }
+    nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 15px; padding: 12px 15px; }
+    nav a { font-size: 14px; }
+    .header-actions { justify-content: center; flex-wrap: wrap; }
+    .shop { padding: 10px 18px; font-size: 13px; }
+    .slider { width: calc(100% - 30px); margin: 15px 15px 0 15px; height: 600px; border-radius: 20px; }
+    .banner-nav { width: 38px; height: 38px; font-size: 18px; }
+    .nav-prev { left: 8px; }
+    .nav-next { right: 8px; }
+    .banner { padding: 40px 20px; align-items: center; }
+    .banner h1 { font-size: 38px; }
     .banner p { font-size: 14px; }
-    .hanging-candies-corner { display: none; }
-    .tiny-girl { font-size: 60px; }
-    .floating-target-candy { font-size: 45px; }
-    .candy-cards-section { padding: 60px 20px; }
-    .candy-section-heading h2 { font-size: 36px; }
+    .small-title { font-size: 11px; letter-spacing: 2px; }
+    .banner-decor-img { opacity: 0.3; }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .slides, .space-asset, .hanging-candy, .banner-decor-img, .marquee-content, .logo-circle-frame {
+        animation: none !important;
+    }
 }
