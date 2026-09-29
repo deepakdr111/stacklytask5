@@ -17,7 +17,9 @@
 
 <body>
 
-    <!-- ==================== MAIN BACKGROUND (CANDY UNIVERSE) ==================== -->
+    <!-- ==========================================================================
+         SECTION 1: ANIMATED SPACE BACKGROUND (CANDY UNIVERSE)
+         ========================================================================== -->
     <div class="background-animation">
 
         <!-- Universe Central Cloud BG Asset -->
@@ -70,15 +72,6 @@
         <!-- Spinning Asteroid (Yellow Line: Top-Right to Mars) -->
         <img src="assets/asteroid.png" class="space-asset asteroid-yellow-line" alt="Asteroid">
 
-        <!-- Falling Star (Blue Line: Spanning from Blue Circle near CandySaturn Leftward) -->
-        <img src="assets/falling-star.png" class="space-asset falling-star-blue-arc" alt="Falling Star">
-
-        <!-- Green 'S' Locations: Glowing Stars (✨, ⭐) in Exact Mentioned Spots -->
-        <span class="tiny-glow-star star-spot-s1">✨</span>
-        <span class="tiny-glow-star star-spot-s2">⭐</span>
-        <span class="tiny-glow-star star-spot-s3">✨</span>
-        <span class="tiny-glow-star star-spot-s4">⭐</span>
-
         <!-- Pink 'C' Locations: Floating Candies in Exact Mentioned Spots -->
         <img src="assets/candy.png" class="space-asset candy-spot-c1" alt="Candy C1">
         <img src="assets/sweets.png" class="space-asset candy-spot-c2" alt="Candy C2">
@@ -89,7 +82,9 @@
     </div>
 
 
-    <!-- ==================== STICKY HEADER ==================== -->
+    <!-- ==========================================================================
+         SECTION 2: HEADER & NAVIGATION
+         ========================================================================== -->
     <header>
 
         <!-- Circled & Highlighted Logo with Separate Letter Pop Effect -->
@@ -109,8 +104,8 @@
         <!-- Navigation Links Connected to Sections -->
         <nav>
             <a href="#home">Home</a>
-            <a href="#candies">Candies</a>
             <a href="#collections">Collections</a>
+            <a href="#testimonials">Testimonials</a>
             <a href="#about">About Us</a>
         </nav>
 
@@ -122,16 +117,16 @@
                 <img src="assets/user.png" alt="Account" class="action-icon-img">
             </a>
 
-            <a href="#candies" class="icon-asset-link" title="Wishlist">
+            <a href="#collections" class="icon-asset-link" title="Wishlist">
                 <img src="assets/whishlist.png" alt="Whishlist" class="action-icon-img">
             </a>
 
-            <a href="#candies" class="icon-asset-link cart-asset-link" title="Shopping Cart">
+            <a href="#collections" class="icon-asset-link cart-asset-link" title="Shopping Cart">
                 <img src="assets/cart.png" alt="Shopping Cart" class="action-icon-img">
                 <span class="cart-count">20</span>
             </a>
 
-            <a href="#candies" class="shop">
+            <a href="#collections" class="shop">
                 SHOP SWEETS
             </a>
 
@@ -140,7 +135,9 @@
     </header>
 
 
-    <!-- ==================== BANNER SLIDER ==================== -->
+    <!-- ==========================================================================
+         SECTION 3: HERO BANNER SLIDER (#home)
+         ========================================================================== -->
     <main>
 
         <section class="slider" id="home">
@@ -302,8 +299,11 @@
         </section>
 
 
-        <!-- ==================== 4 SWEET COLLECTIONS SECTION ==================== -->
-        <section class="candy-cards-section" id="candies">
+        <!-- ==========================================================================
+             SECTION 4: SWEET COLLECTIONS (#collections)
+             ========================================================================== -->
+        <section class="candy-cards-section" id="collections">
+            <div id="candies"></div>
 
             <!-- Floating Subtle Chocolate Elements around Collection Section -->
             <div class="choco-section-accents" aria-hidden="true">
@@ -313,18 +313,37 @@
                 <span class="choco-float-item choco-item-4">🍬</span>
             </div>
 
-            <!-- Collection Section Heading (Distinct Unboxed Layout) -->
+            <!-- Collection Section Heading (High Contrast Dark Glass Layout) -->
             <div class="custom-section-heading collection-heading-wrap">
                 <span class="small-editorial-label collection-label-accent">OUR SWEET COLLECTIONS</span>
                 <h2 class="main-editorial-title collection-title-gradient">Pick Your Sweet Universe</h2>
-                <p class="editorial-subtext collection-subtext">Four worlds. Dozens of delicious ways to satisfy your sweet tooth.</p>
+                <p class="editorial-subtext collection-subtext">Four worlds. Dozens of delicious ways to satisfy your
+                    sweet tooth.</p>
             </div>
 
-            <!-- Bulletin Ticker Marquee Banner -->
-            <div class="marquee-bulletin-wrap nimo-agency-marquee">
+            <!-- ==========================================================================
+                 SECTION 5: TICKER MARQUEE BANNER
+                 ========================================================================== -->
+            <div class="marquee-bulletin-wrap nimo-agency-marquee-large">
                 <div class="marquee-content">
-                    <span>🍭 PICK YOUR SWEET 🍫 4 SWEET UNIVERSES 🍬 FRESH HANDCRAFTED CANDIES 🍡 EXPLORE COLLECTIONS INSIDE 🌈 UNWRAP HAPPINESS 🍯 100% PREMIUM INGREDIENTS 🍭</span>
-                    <span>🍭 PICK YOUR SWEET 🍫 4 SWEET UNIVERSES 🍬 FRESH HANDCRAFTED CANDIES 🍡 EXPLORE COLLECTIONS INSIDE 🌈 UNWRAP HAPPINESS 🍯 100% PREMIUM INGREDIENTS 🍭</span>
+                    <span class="marquee-track-phrase">
+                        <span class="mq-word text-neon-lime">FREE SUPPORT LIFETIME</span>
+                        <span class="mq-word text-stroke-outline">4 SWEET UNIVERSES</span>
+                        <span class="mq-word text-candyrush-gold">HANDCRAFTED CHOCOLATES</span>
+                        <span class="mq-word text-stroke-outline">EXPLORE COLLECTIONS</span>
+                        <span class="mq-word text-candyrush-pink">GUMMY GALAXY</span>
+                        <span class="mq-word text-stroke-outline">100% ORGANIC & FRESH</span>
+                        <span class="mq-word text-candyrush-purple">RAINBOW LOLLIPOPS</span>
+                    </span>
+                    <span class="marquee-track-phrase">
+                        <span class="mq-word text-neon-lime">FREE SUPPORT LIFETIME</span>
+                        <span class="mq-word text-stroke-outline">4 SWEET UNIVERSES</span>
+                        <span class="mq-word text-candyrush-gold">HANDCRAFTED CHOCOLATES</span>
+                        <span class="mq-word text-stroke-outline">EXPLORE COLLECTIONS</span>
+                        <span class="mq-word text-candyrush-pink">GUMMY GALAXY</span>
+                        <span class="mq-word text-stroke-outline">100% ORGANIC & FRESH</span>
+                        <span class="mq-word text-candyrush-purple">RAINBOW LOLLIPOPS</span>
+                    </span>
                 </div>
             </div>
 
@@ -394,8 +413,10 @@
         </section>
 
 
-        <!-- ==================== FULL-WIDTH TESTIMONIAL MARQUEE SECTION ==================== -->
-        <section class="testimonials-section" id="collections">
+        <!-- ==========================================================================
+             SECTION 6: TESTIMONIALS - DUAL HORIZONTAL MARQUEE (#testimonials)
+             ========================================================================== -->
+        <section class="testimonials-section" id="testimonials">
 
             <!-- Decorative Floating Chocolates -->
             <span class="choco-decor choco-decor-top-left" title="Chocolate Bar">🍫</span>
@@ -706,14 +727,17 @@
         </section>
 
 
-        <!-- ==================== CONTACT & ABOUT SECTION ==================== -->
+        <!-- ==========================================================================
+             SECTION 7 & 8: ABOUT US & CONTACT US (#about / #contact)
+             ========================================================================== -->
         <section class="contact-section" id="about">
 
             <!-- Section Heading (Distinct Editorial Contact Style) -->
             <div class="custom-section-heading contact-heading-wrap" id="contact">
                 <span class="small-editorial-label contact-label-accent">LET'S TALK SWEET</span>
                 <h2 class="main-editorial-title contact-title-gradient">Have Something Sweet to Say?</h2>
-                <p class="editorial-subtext contact-subtext">Questions, custom candy orders or just want to say hello?</p>
+                <p class="editorial-subtext contact-subtext">Questions, custom candy orders or just want to say hello?
+                </p>
             </div>
 
             <div class="contact-container">
@@ -722,7 +746,8 @@
                 <div class="contact-info-card">
                     <h3 class="contact-info-title">We'd Love to Hear From You 🍭</h3>
                     <p class="contact-info-desc">
-                        Whether you need a custom candy box for an event, have feedback, or just want to talk about sweets, reach out anytime!
+                        Whether you need a custom candy box for an event, have feedback, or just want to talk about
+                        sweets, reach out anytime!
                     </p>
 
                     <ul class="contact-details-list">
@@ -776,17 +801,20 @@
 
                         <div class="form-group">
                             <label for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" name="email" placeholder="e.g. ananya@example.com" required>
+                            <input type="email" id="contact-email" name="email" placeholder="e.g. ananya@example.com"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="contact-subject">Subject</label>
-                            <input type="text" id="contact-subject" name="subject" placeholder="e.g. Custom Candy Order Request" required>
+                            <input type="text" id="contact-subject" name="subject"
+                                placeholder="e.g. Custom Candy Order Request" required>
                         </div>
 
                         <div class="form-group">
                             <label for="contact-message">Message</label>
-                            <textarea id="contact-message" name="message" rows="4" placeholder="Tell us what sweet treats you're looking for..." required></textarea>
+                            <textarea id="contact-message" name="message" rows="4"
+                                placeholder="Tell us what sweet treats you're looking for..." required></textarea>
                         </div>
 
                         <button type="submit" class="submit-btn">
@@ -800,15 +828,23 @@
         </section>
 
 
-        <!-- ==================== EMPTY FULL SCREEN BACKGROUND VIEW SECTION ==================== -->
-        <section class="bg-experience-section-empty" title="Full Screen Candy Background View">
-            <!-- Empty Full Screen Page to Experience the Background -->
-        </section>
 
     </main>
 
 
-    <!-- ==================== FOOTER SECTION ==================== -->
+    <!-- ==========================================================================
+         SECTION 9: OPTIONAL FULL SCREEN BACKGROUND VIEW (COMMENTED OUT)
+         Uncomment the section below if you wish to view an empty full screen page.
+         ==========================================================================
+    <section class="bg-experience-section-empty" id="bg-view" title="Full Screen Candy Background View">
+        Empty Full Screen Section to Experience the Background
+    </section>
+    ========================================================================== -->
+
+
+    <!-- ==========================================================================
+         SECTION 10: SITE FOOTER
+         ========================================================================== -->
     <footer class="site-footer">
 
         <div class="footer-top-gradient-line"></div>
@@ -835,8 +871,8 @@
                 <h4 class="footer-col-title">QUICK LINKS</h4>
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#candies">Candies</a></li>
                     <li><a href="#collections">Collections</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#about">About Us</a></li>
                 </ul>
             </div>
@@ -884,11 +920,13 @@
     </footer>
 
 
-    <!-- ==================== COLLECTION EXPLORE MODAL ==================== -->
+    <!-- ==========================================================================
+         SECTION 11: EXPLORE COLLECTION MODAL
+         ========================================================================== -->
     <div class="collection-modal-overlay" id="collectionModal" aria-hidden="true">
         <div class="collection-modal-container">
             <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Collection">✕</button>
-            
+
             <div class="modal-header">
                 <span class="modal-badge" id="modalBadge">24 CANDIES</span>
                 <h2 class="modal-title" id="modalTitle">CLASSIC SWEETS 🍭</h2>
