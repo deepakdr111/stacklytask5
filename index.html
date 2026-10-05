@@ -105,26 +105,28 @@
         <nav>
             <a href="#home">Home</a>
             <a href="#collections">Collections</a>
+            <a href="#mystery-box">Mystery Box </a>
             <a href="#testimonials">Testimonials</a>
             <a href="#about">About Us</a>
         </nav>
 
 
-        <!-- Header Actions with Asset Icons (No Circle Border) -->
+        <!-- Header Actions with Asset Icons (Interactive Modals Connected) -->
         <div class="header-actions">
 
-            <a href="#about" class="icon-asset-link" title="Account">
+            <button class="icon-asset-link modal-trigger-btn" id="openAccountModalBtn" title="Account / Login">
                 <img src="assets/user.png" alt="Account" class="action-icon-img">
-            </a>
+            </button>
 
-            <a href="#collections" class="icon-asset-link" title="Wishlist">
-                <img src="assets/whishlist.png" alt="Whishlist" class="action-icon-img">
-            </a>
+            <button class="icon-asset-link modal-trigger-btn" id="openWishlistModalBtn" title="Wishlist">
+                <img src="assets/whishlist.png" alt="Wishlist" class="action-icon-img">
+                <span class="wishlist-count" id="headerWishlistCount">0</span>
+            </button>
 
-            <a href="#collections" class="icon-asset-link cart-asset-link" title="Shopping Cart">
+            <button class="icon-asset-link cart-asset-link modal-trigger-btn" id="openCartModalBtn" title="Shopping Cart">
                 <img src="assets/cart.png" alt="Shopping Cart" class="action-icon-img">
-                <span class="cart-count">20</span>
-            </a>
+                <span class="cart-count" id="headerCartCount">2</span>
+            </button>
 
             <a href="#collections" class="shop">
                 SHOP SWEETS
@@ -136,11 +138,97 @@
 
 
     <!-- ==========================================================================
-         SECTION 3: HERO BANNER SLIDER (#home)
+         MAIN CONTENT AREA
          ========================================================================== -->
-    <main>
+    <main id="home">
 
-        <section class="slider" id="home">
+        <!-- ==========================================================================
+             SECTION 3A: HERO SHOWCASE SECTION (MATCHING REFERENCE IMAGE 1)
+             ========================================================================== -->
+        <section class="hero-showcase-section">
+            <div class="hero-showcase-container">
+                
+                <!-- Left Text Side -->
+                <div class="hero-text-side">
+                    <div class="hero-pill-badge">
+                        <span class="sparkle-icon">✨</span> 100% Organic Fruit Gummies &amp; Chocolates
+                    </div>
+
+                    <h1 class="hero-main-title">
+                        A Universe of <br>
+                        <span class="title-gradient-pink">Sweet Delights</span> 🍭
+                    </h1>
+
+                    <p class="hero-main-subtitle">
+                        Discover handcrafted gummies, artisan cocoa chocolates and nostalgic candy mix boxes delivered straight to your door with love.
+                    </p>
+
+                    <!-- Dual CTAs -->
+                    <div class="hero-action-btns">
+                        <a href="#collections" class="hero-btn primary-pink-btn">
+                            Shop Sweet Treats 🛍️
+                        </a>
+                        <a href="#mystery-box" class="hero-btn secondary-glass-btn open-box-builder-trigger">
+                            Build a Box 🎁
+                        </a>
+                    </div>
+
+                    <!-- Social Proof Rating Pill -->
+                    <div class="hero-rating-proof">
+                        <div class="avatar-stack">
+                            <span class="av-emoji av-1">💖</span>
+                            <span class="av-emoji av-2">😋</span>
+                            <span class="av-emoji av-3">🍬</span>
+                            <span class="av-emoji av-4">✨</span>
+                        </div>
+                        <div class="rating-info">
+                            <div class="star-rating-row">⭐⭐⭐⭐⭐ <span class="rating-num">4.9/5</span></div>
+                            <p>Loved by <strong>50,000+</strong> sweet tooth lovers nationwide!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Side -->
+                <div class="hero-visual-side">
+                    <div class="hero-xmas-holder">
+                        <img src="assets/xmas.png" alt="Sweet Xmas Universe" class="hero-xmas-img">
+                        <div class="hero-xmas-glow"></div>
+                    </div>
+
+                    <!-- Floating Mini Accent Badges -->
+                    <div class="hero-float-badge float-top-right">
+                        <span class="badge-emoji">🍓</span>
+                        <div class="badge-text">
+                            <strong>Real Fruit Juices</strong>
+                            <span>No Artificial Colors</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-float-badge float-bottom-left">
+                        <span class="badge-emoji">🚀</span>
+                        <div class="badge-text">
+                            <strong>Express Shipping</strong>
+                            <span>Arrives Fresh &amp; Fast</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-float-badge float-top-left">
+                        <span class="badge-emoji">✨</span>
+                        <div class="badge-text">
+                            <strong>100% Organic</strong>
+                            <span>Handcrafted Treats</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
+             SECTION 3B: HERO BANNER SLIDER
+             ========================================================================== -->
+        <section class="slider">
 
             <!-- Banner Navigation Arrow Keys (< >) -->
             <button class="banner-nav nav-prev" id="prevSlideBtn" title="Previous Banner">&lt;</button>
@@ -272,8 +360,8 @@
                             Create your own colorful candy collection
                             and make every moment a little sweeter.
                         </p>
-                        <a href="#candies" class="banner-button festival-button">
-                            BUILD YOUR BOX
+                        <a href="#mystery-box" class="banner-button festival-button open-box-builder-trigger">
+                            BUILD YOUR BOX 🎁
                         </a>
                     </div>
 
@@ -305,14 +393,6 @@
         <section class="candy-cards-section" id="collections">
             <div id="candies"></div>
 
-            <!-- Floating Subtle Chocolate Elements around Collection Section -->
-            <div class="choco-section-accents" aria-hidden="true">
-                <span class="choco-float-item choco-item-1">🍫</span>
-                <span class="choco-float-item choco-item-2">🍪</span>
-                <span class="choco-float-item choco-item-3">🍫</span>
-                <span class="choco-float-item choco-item-4">🍬</span>
-            </div>
-
             <!-- Collection Section Heading (High Contrast Dark Glass Layout) -->
             <div class="custom-section-heading collection-heading-wrap">
                 <span class="small-editorial-label collection-label-accent">OUR SWEET COLLECTIONS</span>
@@ -327,22 +407,22 @@
             <div class="marquee-bulletin-wrap nimo-agency-marquee-large">
                 <div class="marquee-content">
                     <span class="marquee-track-phrase">
-                        <span class="mq-word text-neon-lime">FREE SUPPORT LIFETIME</span>
+                        <span class="mq-word retro-pink">FREE SUPPORT LIFETIME</span>
                         <span class="mq-word text-stroke-outline">4 SWEET UNIVERSES</span>
-                        <span class="mq-word text-candyrush-gold">HANDCRAFTED CHOCOLATES</span>
+                        <span class="mq-word retro-yellow">HANDCRAFTED CHOCOLATES</span>
                         <span class="mq-word text-stroke-outline">EXPLORE COLLECTIONS</span>
-                        <span class="mq-word text-candyrush-pink">GUMMY GALAXY</span>
+                        <span class="mq-word retro-blue">GUMMY GALAXY</span>
                         <span class="mq-word text-stroke-outline">100% ORGANIC & FRESH</span>
-                        <span class="mq-word text-candyrush-purple">RAINBOW LOLLIPOPS</span>
+                        <span class="mq-word retro-purple">RAINBOW LOLLIPOPS</span>
                     </span>
                     <span class="marquee-track-phrase">
-                        <span class="mq-word text-neon-lime">FREE SUPPORT LIFETIME</span>
+                        <span class="mq-word retro-pink">FREE SUPPORT LIFETIME</span>
                         <span class="mq-word text-stroke-outline">4 SWEET UNIVERSES</span>
-                        <span class="mq-word text-candyrush-gold">HANDCRAFTED CHOCOLATES</span>
+                        <span class="mq-word retro-yellow">HANDCRAFTED CHOCOLATES</span>
                         <span class="mq-word text-stroke-outline">EXPLORE COLLECTIONS</span>
-                        <span class="mq-word text-candyrush-pink">GUMMY GALAXY</span>
+                        <span class="mq-word retro-blue">GUMMY GALAXY</span>
                         <span class="mq-word text-stroke-outline">100% ORGANIC & FRESH</span>
-                        <span class="mq-word text-candyrush-purple">RAINBOW LOLLIPOPS</span>
+                        <span class="mq-word retro-purple">RAINBOW LOLLIPOPS</span>
                     </span>
                 </div>
             </div>
@@ -368,7 +448,7 @@
                 <div class="collection-card card-theme-gummy">
                     <div class="collection-badge">32 CANDIES</div>
                     <div class="collection-artwork-wrap">
-                        <img src="assets/gummy-bear.png" alt="Gummy Galaxy" class="collection-artwork-img">
+                        <img src="assets2/21_gummy_bear.png" alt="Gummy Galaxy" class="collection-artwork-img">
                         <span class="artwork-bg-glow glow-gummy"></span>
                     </div>
                     <h3 class="collection-name title-gummy">🍬 GUMMY GALAXY</h3>
@@ -378,13 +458,11 @@
                     </button>
                 </div>
 
-                <!-- CARD 3: CHOCO UNIVERSE (Chocolate Wrapper Style - Strongest Choco Identity) -->
+                <!-- CARD 3: CHOCO UNIVERSE (Chocolate Wrapper Style) -->
                 <div class="collection-card card-theme-choco">
-                    <div class="choco-card-decor top-left">🍫</div>
-                    <div class="choco-card-decor bottom-right">🍪</div>
                     <div class="collection-badge choco-badge">20 CANDIES</div>
                     <div class="collection-artwork-wrap">
-                        <img src="assets/candy.png" alt="Choco Universe" class="collection-artwork-img">
+                        <img src="assets2/choco.png" alt="Choco Universe" class="collection-artwork-img">
                         <span class="artwork-bg-glow glow-choco"></span>
                     </div>
                     <h3 class="collection-name title-choco">🍫 CHOCO UNIVERSE</h3>
@@ -398,7 +476,7 @@
                 <div class="collection-card card-theme-rainbow">
                     <div class="collection-badge">40 CANDIES</div>
                     <div class="collection-artwork-wrap">
-                        <img src="assets/lollipop.png" alt="Rainbow Lollipops" class="collection-artwork-img">
+                        <img src="assets2/rainbowlolli.png" alt="Rainbow Lollipops" class="collection-artwork-img">
                         <span class="artwork-bg-glow glow-rainbow"></span>
                     </div>
                     <h3 class="collection-name title-rainbow">🌈 RAINBOW LOLLIPOPS</h3>
@@ -414,14 +492,92 @@
 
 
         <!-- ==========================================================================
+             SECTION 5: BUILD YOUR MYSTERY BOX & RAINBOW GALAXY SHOWCASE
+             ========================================================================== -->
+        <section class="mystery-box-section" id="mystery-box">
+            <div class="mystery-section-layout-row">
+                
+                <!-- LEFT 70%: MYSTERY BOX CONTAINER (PRESERVED CONTENT) -->
+                <div class="mystery-box-container">
+                    
+                    <div class="mystery-text-side">
+                        <span class="mystery-badge-pill">CUSTOM GIFT EXPERIENCE</span>
+                        
+                        <h2 class="mystery-title">
+                            Build Your Own <br>
+                            <span class="text-mint-highlight">Candy Mystery Box</span> 🎁
+                        </h2>
+                        
+                        <p class="mystery-subtext">
+                            Mix &amp; match 4 of your favorite sweet categories into a custom pastel gift box with a personalized sweet message!
+                        </p>
+                        
+                        <ul class="mystery-steps-list">
+                            <li>
+                                <span class="step-badge">1</span>
+                                <span>Pick your box size (Small, Medium, XL)</span>
+                            </li>
+                            <li>
+                                <span class="step-badge">2</span>
+                                <span>Select up to 6 delicious candy flavors</span>
+                            </li>
+                            <li>
+                                <span class="step-badge">3</span>
+                                <span>Add a personalized handwritten card</span>
+                            </li>
+                        </ul>
+
+                        <button class="explore-collection-btn btn-retro mystery-cta-btn open-box-builder-trigger" id="openMysteryModalBtn">
+                            Build My Gift Box Now 🎁
+                        </button>
+                    </div>
+
+                    <div class="mystery-art-side">
+                        <div class="mystery-art-wrap">
+                            <img src="assets/candybox.PNG" alt="Custom Candy Mystery Box" class="mystery-art-img">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT 30%: RAINBOW GALAXY MIX BOX CARD (NO FLOATING PILLS) -->
+                <div class="rainbow-galaxy-card-wrap">
+                    <div class="rainbow-showcase-card">
+
+                        <!-- Image Artwork with Glow -->
+                        <div class="rainbow-art-holder">
+                            <img src="assets/candyrainbow.png" alt="Rainbow Galaxy Mix Box" class="rainbow-mix-img">
+                            <div class="rainbow-art-glow"></div>
+                        </div>
+
+                        <!-- Meta & Action Bar -->
+                        <div class="rainbow-card-footer">
+                            <div class="rainbow-title-group">
+                                <h3 class="rainbow-box-title">Rainbow Galaxy Mix Box</h3>
+                                <p class="rainbow-box-sub">500g Deluxe Pack</p>
+                            </div>
+                            <div class="rainbow-action-group">
+                                <span class="rainbow-price-pill">₹299</span>
+                                <button class="rainbow-cart-btn add-to-cart-trigger" 
+                                        data-name="Rainbow Galaxy Mix Box" 
+                                        data-price="299" 
+                                        data-img="assets/candyrainbow.png">
+                                    + Cart 🛒
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==========================================================================
              SECTION 6: TESTIMONIALS - DUAL HORIZONTAL MARQUEE (#testimonials)
              ========================================================================== -->
         <section class="testimonials-section" id="testimonials">
-
-            <!-- Decorative Floating Chocolates -->
-            <span class="choco-decor choco-decor-top-left" title="Chocolate Bar">🍫</span>
-            <span class="choco-decor choco-decor-top-right" title="Chocolate Cookie">🍪</span>
-            <span class="choco-decor choco-decor-mid-right" title="Wrapped Candy">🍬</span>
 
             <!-- Section Heading (Distinct Editorial Testimonial Style) -->
             <div class="custom-section-heading testimonial-heading-wrap">
@@ -944,6 +1100,203 @@
             </div>
         </div>
     </div>
+
+    <!-- ==========================================================================
+         SECTION 11B: BUILD YOUR OWN CANDY BOX MODAL
+         ========================================================================== -->
+    <div class="collection-modal-overlay" id="boxBuilderModal" aria-hidden="true">
+        <div class="collection-modal-container box-builder-modal-container">
+            <button class="modal-close-btn" id="closeBoxBuilderBtn" aria-label="Close Box Builder">✕</button>
+
+            <div class="modal-header box-builder-header">
+                <span class="modal-badge">INTERACTIVE BOX BUILDER</span>
+                <h2 class="modal-title">Create Your Sweet Box 🎁</h2>
+                <p class="modal-desc">Pick your box size and choose your favorite candies from across our universes!</p>
+            </div>
+
+            <!-- Step 1: Choose Box Size -->
+            <div class="box-size-selector-wrap">
+                <span class="builder-step-label">Step 1: Choose Box Size</span>
+                <div class="box-size-options">
+                    <button class="box-size-chip active" data-size="4" data-name="Small Sweet Box (4 Candies)" data-price="249">
+                        <span class="chip-title">Small Box</span>
+                        <span class="chip-subtitle">4 Candies • ₹249</span>
+                    </button>
+                    <button class="box-size-chip" data-size="6" data-name="Medium Galaxy Box (6 Candies)" data-price="349">
+                        <span class="chip-title">Medium Box</span>
+                        <span class="chip-subtitle">6 Candies • ₹349</span>
+                    </button>
+                    <button class="box-size-chip" data-size="8" data-name="XL Universe Box (8 Candies)" data-price="449">
+                        <span class="chip-title">XL Box</span>
+                        <span class="chip-subtitle">8 Candies • ₹449</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Selected Box Slots Preview -->
+            <div class="box-slots-preview-area">
+                <div class="slots-header">
+                    <span class="builder-step-label">Step 2: Box Slots (<span id="selectedCountDisplay">0</span>/<span id="maxCountDisplay">4</span> Selected)</span>
+                    <button class="clear-box-btn" id="clearBoxBtn">Clear All</button>
+                </div>
+                <div class="box-slots-grid" id="boxSlotsGrid">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="builder-categories-bar">
+                <span class="builder-step-label">Step 3: Select Candies from Universe</span>
+                <div class="builder-tabs">
+                    <button class="builder-tab-btn active" data-cat="all">All Candies 🍭</button>
+                    <button class="builder-tab-btn" data-cat="Classic">Classic 🍬</button>
+                    <button class="builder-tab-btn" data-cat="Gummy">Gummies 🐻</button>
+                    <button class="builder-tab-btn" data-cat="Choco">Chocolates 🍫</button>
+                    <button class="builder-tab-btn" data-cat="Rainbow">Rainbow 🌈</button>
+                </div>
+            </div>
+
+            <!-- Candies Selection Grid -->
+            <div class="builder-candies-grid" id="builderCandiesGrid">
+                <!-- Rendered by JS -->
+            </div>
+
+            <!-- Step 4: Greeting Card Note -->
+            <div class="builder-note-area">
+                <span class="builder-step-label">Step 4: Personalized Handwritten Card Message (Optional)</span>
+                <input type="text" id="builderGreetingMessage" class="builder-msg-input" placeholder="e.g. Wishing you a sweet galaxy of smiles! Love, Sarah ✨" maxlength="120">
+            </div>
+
+            <!-- Footer Action -->
+            <div class="builder-footer-bar">
+                <div class="builder-price-summary">
+                    <span>Box Total:</span>
+                    <strong id="builderTotalPrice">₹249</strong>
+                </div>
+                <button class="submit-btn primary-pink-btn add-custom-box-to-cart-btn" id="addCustomBoxToCartBtn">
+                    CREATE &amp; ADD BOX TO CART 🎁
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         SECTION 12: USER ACCOUNT / LOGIN & SIGN UP MODAL
+         ========================================================================== -->
+    <div class="collection-modal-overlay" id="accountModal" aria-hidden="true">
+        <div class="collection-modal-container account-modal-card">
+            <button class="modal-close-btn" id="closeAccountModalBtn">✕</button>
+            
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <span class="modal-badge">SWEET LOVER PORTAL</span>
+                <h2 class="modal-title" id="accountModalTitle">Welcome to CandyRush 🍭</h2>
+                <p class="modal-desc" id="accountModalDesc">Access your sweet profile, orders, and exclusive universe perks!</p>
+                
+                <!-- Tab Switcher (Sign In vs Sign Up) -->
+                <div class="auth-tabs-wrap">
+                    <button class="auth-tab-btn active" id="tabSignInBtn">Sign In</button>
+                    <button class="auth-tab-btn" id="tabSignUpBtn">Sign Up</button>
+                </div>
+            </div>
+
+            <!-- Sign In Form -->
+            <form class="account-form active-form" id="signInForm" onsubmit="event.preventDefault();">
+                <div class="form-group">
+                    <label for="signin-email">Email Address</label>
+                    <input type="email" id="signin-email" placeholder="e.g. sweetlover@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signin-pass">Password</label>
+                    <input type="password" id="signin-pass" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="submit-btn primary-pink-btn" id="signInSubmitBtn">
+                    SIGN IN TO ACCOUNT 🚀
+                </button>
+            </form>
+
+            <!-- Sign Up Form (Initially Hidden) -->
+            <form class="account-form" id="signUpForm" onsubmit="event.preventDefault();" style="display: none;">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="e.g. Ananya Roy" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="e.g. ananya@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-pass">Create Password</label>
+                    <input type="password" id="signup-pass" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="submit-btn primary-pink-btn" id="signUpSubmitBtn">
+                    CREATE SWEET ACCOUNT ✨
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         SECTION 13: WISHLIST MODAL
+         ========================================================================== -->
+    <div class="collection-modal-overlay" id="wishlistModal" aria-hidden="true">
+        <div class="collection-modal-container wishlist-modal-card">
+            <button class="modal-close-btn" id="closeWishlistModalBtn">✕</button>
+            <div class="modal-header">
+                <span class="modal-badge">SAVED CANDIES</span>
+                <h2 class="modal-title">My Sweet Wishlist ❤️</h2>
+                <p class="modal-desc">Your favorite chocolates and gummies saved for later.</p>
+            </div>
+            <div class="drawer-items-list" id="wishlistItemsList">
+                <!-- Dynamically rendered via JS -->
+            </div>
+            <div class="modal-footer">
+                <button class="modal-close-action-btn" id="closeWishlistActionBtn">
+                    CONTINUE SHOPPING 🛍️
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         SECTION 14: SHOPPING CART DRAWER / MODAL
+         ========================================================================== -->
+    <div class="collection-modal-overlay" id="cartModal" aria-hidden="true">
+        <div class="collection-modal-container cart-modal-card">
+            <button class="modal-close-btn" id="closeCartModalBtn">✕</button>
+            <div class="modal-header">
+                <span class="modal-badge">YOUR SWEET BASKET</span>
+                <h2 class="modal-title">Shopping Cart 🛒</h2>
+                <p class="modal-desc">Review your selected artisan treats before express delivery.</p>
+            </div>
+            <div class="drawer-items-list" id="cartItemsList">
+                <!-- Dynamically rendered via JS -->
+            </div>
+            <div class="cart-summary-bar">
+                <div class="cart-total-row">
+                    <span>Total Amount:</span>
+                    <strong id="cartTotalPrice">₹598</strong>
+                </div>
+                <button class="submit-btn primary-pink-btn checkout-btn" id="checkoutBtn">
+                    PROCEED TO CHECKOUT 💳
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==========================================================================
+         SECTION 15: TOAST NOTIFICATION POPUP
+         ========================================================================== -->
+    <div class="toast-notification" id="toastNotification">
+        <span class="toast-icon">✨</span>
+        <span class="toast-message" id="toastMessage">Added to your Sweet Cart!</span>
+    </div>
+
 
     <!-- Interactive Script -->
     <script src="script.js"></script>
